@@ -8,6 +8,7 @@ import { SharedModule } from './shared/shared.module';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { PagesModule } from './pages/pages.module';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -20,7 +21,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppRoutingModule,
     NoopAnimationsModule,
     HttpClientModule,
-    SharedModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -29,6 +29,8 @@ export function HttpLoaderFactory(http: HttpClient) {
       },
       defaultLanguage: 'en',
     }),
+    SharedModule,
+    PagesModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
