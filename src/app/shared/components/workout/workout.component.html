@@ -1,10 +1,22 @@
-<mat-card>
-  <span class="typography-heading-xl">{{ title }}</span>
-  <span class="typography-heading-l">{{ title }}</span>
-  <span class="typography-heading-m">{{ title }}</span>
-  <span class="typography-heading-s">{{ title }}</span>
-  <span class="typography-body">{{ title }}</span>
-  <span class="typography-caption">{{ desc }}</span>
-  <!-- <span>{{ currentMembers }} / {{ totalMembers }}</span>
-  <span>{{ date }}</span> -->
+<mat-card class="workout-card">
+  <mat-card-content class="workout-content">
+    <span class="workout-title typography-heading-m">{{ title }}</span>
+    <span class="workout-description typography-body">{{ desc }}</span>
+    <div class="workout-details">
+      <app-workout-detail icon="star">
+        {{ 'workout.difficulty.' + difficulty | translate }}
+      </app-workout-detail>
+      <app-workout-detail icon="schedule"> 30 minutes </app-workout-detail>
+      <app-workout-detail icon="calendar_today">
+        {{ date | date }}
+      </app-workout-detail>
+      <app-workout-detail icon="group">
+        {{ currentMembers }} / {{ totalMembers }}
+      </app-workout-detail>
+      <app-workout-detail icon="location_on">
+        <a href="google.com">Location</a>
+      </app-workout-detail>
+    </div>
+    <button mat-button>Join Now!</button>
+  </mat-card-content>
 </mat-card>
