@@ -1,0 +1,43 @@
+:root {
+  // Colors
+  --dark: #1f191d;
+  --dark-gray: #30332e;
+  --light-gray: #a2a99e;
+  --white: #f0f7f4;
+
+  // Typography
+  --heading-xl-font-size: 32px;
+  --heading-xl-line-height: 40px;
+  --heading-xl-font-weight: 500;
+  --heading-xl-color: var(--dark);
+
+  --heading-l-font-size: 20px;
+  --heading-l-line-height: 28px;
+  --heading-l-font-weight: normal;
+  --heading-l-color: var(--dark);
+
+  --heading-m-font-size: 16px;
+  --heading-m-line-height: 24px;
+  --heading-m-font-weight: 500;
+  --heading-m-color: var(--dark);
+
+  --heading-s-font-size: 14px;
+  --heading-s-line-height: 20px;
+  --heading-s-font-weight: 500;
+  --heading-s-color: var(--dark-gray);
+
+  --body-l-font-size: 16px;
+  --body-l-line-height: 24px;
+  --body-l-font-weight: normal;
+  --body-l-color: var(--dark-gray);
+
+  --body-m-font-size: 14px;
+  --body-m-line-height: 20px;
+  --body-m-font-weight: normal;
+  --body-m-color: var(--dark-gray);
+
+  --caption-font-size: 12px;
+  --caption-line-height: 16px;
+  --caption-font-weight: normal;
+  --caption-color: var(--light-gray);
+}
