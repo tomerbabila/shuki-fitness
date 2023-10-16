@@ -8,7 +8,7 @@ import { Component, Input } from '@angular/core';
 export class WorkoutComponent {
   @Input() title!: string;
   @Input() desc!: string;
-  @Input() date!: Date;
-  @Input() currentMembers = 0;
-  @Input() totalMembers!: number;
+  // @Input() date!: Date;
+  // @Input() currentMembers = 0;
+  // @Input() totalMembers!: number;
 }
