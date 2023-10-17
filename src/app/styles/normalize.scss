@@ -12,6 +12,8 @@ html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
   box-sizing: border-box;
+  height: 100vh;
+  width: 100vw;
 }
 
 /* Sections
@@ -23,6 +25,8 @@ html {
 
 body {
   margin: 0;
+  height: 100vh;
+  width: 100vw;
 }
 
 /**

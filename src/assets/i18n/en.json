@@ -1,6 +1,8 @@
 {
   "title": "Shuki Fitness",
   "workout": {
+    "location": "Location",
+    "join_now": "Join Now!",
     "difficulty": {
       "hard": "Hard",
       "easy": "Easy",

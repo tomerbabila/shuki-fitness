@@ -1,24 +1,28 @@
-<div class="background">
-  <div class="workout-page-container">
-    <span class="workout-title typography-heading-m">{{ title }}</span>
-    <span class="workout-description typography-body">{{ desc }}</span>
-    <div class="workout-details">
-      <app-workout-detail icon="star">
-        {{ 'workout.difficulty.' + difficulty | translate }}
-      </app-workout-detail>
-      <app-workout-detail icon="schedule"> 30 minutes </app-workout-detail>
-      <app-workout-detail icon="calendar_today">
-        {{ date | date }}
-      </app-workout-detail>
-      <app-workout-detail icon="group">
-        {{ currentMembers }} / {{ totalMembers }}
-      </app-workout-detail>
-      <app-workout-detail icon="location_on">
-        <a href="google.com">Location</a>
-      </app-workout-detail>
-    </div>
-    <div class="actions-container">
-      <button mat-button>Join Now!</button>
-    </div>
+<div class="workout-page-container">
+  <span class="workout-title typography-heading-primary">{{ title }}</span>
+  <span class="workout-description typography-body">
+    {{ desc }}
+  </span>
+  <div class="workout-details">
+    <app-workout-detail icon="star">
+      {{ 'workout.difficulty.' + difficulty | translate }}
+    </app-workout-detail>
+    <app-workout-detail icon="schedule">
+      {{ duration | timestampToTime }}
+    </app-workout-detail>
+    <app-workout-detail icon="calendar_today">
+      {{ date | date }}
+    </app-workout-detail>
+    <app-workout-detail icon="group">
+      {{ currentMembers }} / {{ totalMembers }}
+    </app-workout-detail>
+    <app-workout-detail icon="location_on">
+      <a href="google.com">{{ 'workout.location' | translate }}</a>
+    </app-workout-detail>
+  </div>
+  <div class="actions-container">
+    <button [disabled]="isFullBooked" mat-button>
+      {{ 'workout.join_now' | translate }}
+    </button>
   </div>
 </div>
