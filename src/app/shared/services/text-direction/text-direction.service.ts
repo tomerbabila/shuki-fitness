@@ -5,7 +5,7 @@ import { rtlLanguages } from './text-direction.constants';
 
 @Injectable({ providedIn: 'root' })
 export class TextDirectionService {
-  private _textDirection = new BehaviorSubject(TextDirectionEnum.ltr);
+  private readonly _textDirection = new BehaviorSubject(TextDirectionEnum.ltr);
   public textDirection$ = this._textDirection.asObservable();
 
   constructor() {

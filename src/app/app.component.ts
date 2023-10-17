@@ -9,16 +9,16 @@ import { TextDirectionService } from './shared/services/text-direction/text-dire
 })
 export class AppComponent {
   constructor(
-    private translate: TranslateService,
-    private textDirectionService: TextDirectionService,
-    private renderer: Renderer2
+    translate: TranslateService,
+    textDirectionService: TextDirectionService,
+    renderer: Renderer2
   ) {
     // TODO: Change default language to Hebrew
     translate.setDefaultLang('en');
     translate.use('en');
 
-    this.textDirectionService.textDirection$.subscribe(dir => {
-      this.renderer.setAttribute(document.body, 'dir', dir);
+    textDirectionService.textDirection$.subscribe(dir => {
+      renderer.setAttribute(document.body, 'dir', dir);
     });
   }
 }
