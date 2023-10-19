@@ -14,14 +14,8 @@ import {
   where,
 } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import { nameof } from '../utils';
-import {
-  Entity,
-  Insertable,
-  Ownable,
-  Updateable,
-  Updates,
-} from './repository.model';
+import { nameof } from '@utils';
+import { Entity, Insertable, Ownable, Updateable, Updates } from './models';
 
 export abstract class EntityRepositoryService<T extends Entity> {
   private readonly _firestore = inject(Firestore);

@@ -6,7 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { TranslateModule } from '@ngx-translate/core';
-import { SharedModule } from '../../shared/shared.module';
+import { SharedModule } from '@shared/shared.module';
 import { WorkoutDetailComponent } from './components/workout-detail/workout-detail.component';
 
 @NgModule({

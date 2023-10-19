@@ -1,7 +1,7 @@
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map, distinctUntilChanged } from 'rxjs/operators';
 
-export class Store<T> {
+export abstract class Store<T> {
   private stateSubject: BehaviorSubject<T>;
   public readonly state$: Observable<T>;
 
