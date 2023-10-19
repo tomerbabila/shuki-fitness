@@ -1,6 +1,6 @@
 import { Component, Renderer2 } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { TextDirectionService } from './shared/services/text-direction/text-direction.service';
+import { TextDirectionService } from '@shared/services';
 
 @Component({
   selector: 'app-root',
