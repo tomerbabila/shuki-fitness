@@ -3,37 +3,43 @@
     <span class="typography-heading-primary">Login</span>
   </div>
   <form [formGroup]="loginForm" (ngSubmit)="login()">
-    <mat-form-field class="form-field">
-      <input
-        matInput
-        formControlName="email"
-        placeholder="Email"
-        type="email" />
-      <mat-error *ngIf="email?.hasError('required')"
-        >Email is required</mat-error
-      >
-      <mat-error *ngIf="email?.hasError('email')">Invalid email</mat-error>
-    </mat-form-field>
+    <div class="fields-container">
+      <mat-form-field class="form-field">
+        <input
+          matInput
+          formControlName="email"
+          placeholder="Email"
+          type="email"
+          color="naked" />
+        <mat-error *ngIf="email?.hasError('required')">
+          Email is required
+        </mat-error>
+        <mat-error *ngIf="email?.hasError('email')">Invalid email</mat-error>
+      </mat-form-field>
 
-    <mat-form-field class="form-field">
-      <input
-        matInput
-        formControlName="password"
-        placeholder="Password"
-        type="password" />
-      <mat-error *ngIf="password?.hasError('required')"
-        >Password is required</mat-error
-      >
-      <mat-error *ngIf="password?.hasError('minlength')"
-        >Password must be at least 6 characters long</mat-error
-      >
-    </mat-form-field>
+      <mat-form-field class="form-field">
+        <input
+          matInput
+          formControlName="password"
+          placeholder="Password"
+          type="password" />
+        <mat-error *ngIf="password?.hasError('required')">
+          Password is required
+        </mat-error>
+        <mat-error *ngIf="password?.hasError('minlength')"
+          >Password must be at least 6 characters long
+        </mat-error>
+      </mat-form-field>
+    </div>
 
-    <div>
+    <div class="actions-container">
       <button mat-raised-button color="primary" type="submit">Login</button>
       <button mat-raised-button color="warn" (click)="loginWithGoogle()">
         Login with Google
       </button>
+      <a mat-button href="/register">
+        Don't have an account yet? {{ '\n' }} Create an account
+      </a>
     </div>
   </form>
 
