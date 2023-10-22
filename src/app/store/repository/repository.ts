@@ -1,73 +1,38 @@
-import { inject } from '@angular/core';
-import { Auth } from '@angular/fire/auth';
 import {
-  Firestore,
-  addDoc,
-  collection,
-  collectionData,
-  deleteDoc,
-  doc,
-  query,
-  serverTimestamp,
-  setDoc,
-  updateDoc,
-  where,
-} from '@angular/fire/firestore';
+  AngularFirestore,
+  DocumentReference,
+} from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
-import { nameof } from '@utils';
-import { Entity, Insertable, Ownable, Updateable, Updates } from './models';
 
-export abstract class EntityRepositoryService<T extends Entity> {
-  private readonly _firestore = inject(Firestore);
-  private readonly _auth = inject(Auth);
+export class BaseRepository<T> {
+  constructor(
+    private afs: AngularFirestore,
+    private collectionName: string
+  ) {}
 
-  abstract readonly collectionPath: string;
-
-  /**
-   * Returns observable of entities owned by the user with uid.
-   * If uid is not provided, uses the current user's uid.
-   */
-  observeOwned(uid?: Ownable['uid']) {
-    return collectionData(
-      query(
-        collection(this._firestore, this.collectionPath),
-        where(nameof<Ownable>('uid'), '==', uid ?? this._auth.currentUser?.uid)
-      ),
-      {
-        idField: nameof<Entity>('id'),
-      }
-    ) as Observable<T[]>;
+  create(data: T): Promise<DocumentReference<T>> {
+    return this.afs.collection<T>(this.collectionName).add(data);
   }
 
-  observeAll() {
-    return collectionData(collection(this._firestore, this.collectionPath), {
-      idField: nameof<Entity>('id'),
-    }) as Observable<T[]>;
+  readAll(): Observable<T[]> {
+    return this.afs.collection<T>(this.collectionName).valueChanges();
   }
 
-  async update(id: Entity['id'], updates: Updates<T> | Updateable<T>) {
-    return await updateDoc(doc(this._firestore, this.collectionPath, id), {
-      ...updates,
-      updatedAt: serverTimestamp(),
-    });
+  readById(docId: string): Observable<T | undefined> {
+    return this.afs
+      .collection<T>(this.collectionName)
+      .doc<T>(docId)
+      .valueChanges();
   }
 
-  async replace(id: Entity['id'], entity: Updateable<T>) {
-    return await setDoc(doc(this._firestore, this.collectionPath, id), {
-      ...entity,
-      updatedAt: serverTimestamp(),
-    });
+  update(docId: string, data: Partial<T>): Promise<void> {
+    return this.afs
+      .collection<T>(this.collectionName)
+      .doc<T>(docId)
+      .update(data);
   }
 
-  async create(entity: Insertable<T>) {
-    return await addDoc(collection(this._firestore, this.collectionPath), {
-      ...entity,
-      createdAt: serverTimestamp(),
-      updatedAt: serverTimestamp(),
-    });
-  }
-
-  async remove(id: Entity['id']) {
-    return await deleteDoc(doc(this._firestore, this.collectionPath, id));
+  delete(docId: string): Promise<void> {
+    return this.afs.collection<T>(this.collectionName).doc<T>(docId).delete();
   }
 }
