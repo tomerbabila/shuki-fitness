@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { RecaptchaVerifier, getAuth } from '@angular/fire/auth';
-import { FormBuilder, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '@shared/services';
 
 @Component({
@@ -8,34 +7,38 @@ import { AuthService } from '@shared/services';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent implements OnInit {
-  phoneNumberFormGroup = this.fb.group({
-    phoneNumber: ['', Validators.required],
-  });
-
-  otpFormGroup = this.fb.group({
-    otp: ['', Validators.required],
-  });
+export class LoginComponent {
+  loginForm: FormGroup;
+  errorMessage = '';
 
   constructor(
-    private fb: FormBuilder,
-    private authService: AuthService
-  ) {}
-
-  ngOnInit() {
-    const auth = getAuth();
-
-    window.recaptchaVerifier = new RecaptchaVerifier(
-      'recaptcha-container',
-      { size: 'invisible' },
-      auth
-    );
+    private authService: AuthService,
+    private fb: FormBuilder
+  ) {
+    this.loginForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+    });
   }
 
   login() {
-    const phoneNumber = this.phoneNumberFormGroup.controls['phoneNumber'].value;
-    if (phoneNumber) {
-      this.authService.login(phoneNumber);
+    if (this.loginForm.valid) {
+      const email = this.email?.value;
+      const password = this.password?.value;
+
+      this.authService.loginWithEmail(email, password);
     }
+  }
+
+  loginWithGoogle() {
+    this.authService.loginWithGoogle();
+  }
+
+  get email() {
+    return this.loginForm.get('email');
+  }
+
+  get password() {
+    return this.loginForm.get('password');
   }
 }

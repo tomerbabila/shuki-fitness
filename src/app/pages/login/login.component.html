@@ -1,36 +1,43 @@
-<mat-stepper [linear]="true" #stepper>
-  <mat-step [stepControl]="phoneNumberFormGroup">
-    <form [formGroup]="phoneNumberFormGroup" label="Fill out phone number">
-      <mat-form-field>
-        <mat-label>Phone number</mat-label>
-        <input
-          matInput
-          placeholder="+972501234567"
-          formControlName="phoneNumber"
-          required />
-      </mat-form-field>
-      <div>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-    </form>
-  </mat-step>
-  <mat-step [stepControl]="otpFormGroup" label="Fill out OTP number">
-    <form [formGroup]="otpFormGroup">
-      <mat-form-field>
-        <mat-label>OTP</mat-label>
-        <input matInput placeholder="123456" formControlName="otp" required />
-      </mat-form-field>
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-    </form>
-  </mat-step>
-  <mat-step label="done">
+<div class="login-container">
+  <div class="title-container">
+    <span class="typography-heading-primary">Login</span>
+  </div>
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <mat-form-field class="form-field">
+      <input
+        matInput
+        formControlName="email"
+        placeholder="Email"
+        type="email" />
+      <mat-error *ngIf="email?.hasError('required')"
+        >Email is required</mat-error
+      >
+      <mat-error *ngIf="email?.hasError('email')">Invalid email</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field">
+      <input
+        matInput
+        formControlName="password"
+        placeholder="Password"
+        type="password" />
+      <mat-error *ngIf="password?.hasError('required')"
+        >Password is required</mat-error
+      >
+      <mat-error *ngIf="password?.hasError('minlength')"
+        >Password must be at least 6 characters long</mat-error
+      >
+    </mat-form-field>
+
     <div>
-      <span class="typography-heading-secondary">
-        You moved to admin panel
-      </span>
+      <button mat-raised-button color="primary" type="submit">Login</button>
+      <button mat-raised-button color="warn" (click)="loginWithGoogle()">
+        Login with Google
+      </button>
     </div>
-  </mat-step>
-</mat-stepper>
+  </form>
+
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+</div>
