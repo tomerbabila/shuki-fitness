@@ -1,1 +1,32 @@
-<p>register works!</p>
+<div class="register-container">
+  <span class="typography-heading-primary">Register</span>
+  <form [formGroup]="registerForm" (ngSubmit)="register()">
+    <mat-form-field class="full-width">
+      <input
+        matInput
+        formControlName="email"
+        placeholder="Email"
+        type="email" />
+      <mat-error *ngIf="email?.hasError('required')">
+        Email is required
+      </mat-error>
+      <mat-error *ngIf="email?.hasError('email')">Invalid email</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <input
+        matInput
+        formControlName="password"
+        placeholder="Password"
+        type="password" />
+      <mat-error *ngIf="password?.hasError('required')">
+        Password is required
+      </mat-error>
+      <mat-error *ngIf="password?.hasError('minlength')">
+        Password must be at least 6 characters long
+      </mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">Register</button>
+  </form>
+</div>
