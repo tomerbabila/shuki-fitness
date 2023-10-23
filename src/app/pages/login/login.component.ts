@@ -9,7 +9,6 @@ import { AuthService } from '@shared/services';
 })
 export class LoginComponent {
   loginForm: FormGroup;
-  errorMessage = '';
 
   constructor(
     private authService: AuthService,
