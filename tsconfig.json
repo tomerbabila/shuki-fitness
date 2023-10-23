@@ -23,7 +23,7 @@
     "types": ["node"],
     "paths": {
       "@shared/*": ["src/app/shared/*"],
-      "@utils": ["src/app/utils"]
+      "@utils/*": ["src/app/utils/*"]
     }
   },
   "angularCompilerOptions": {

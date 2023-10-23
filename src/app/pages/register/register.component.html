@@ -27,6 +27,20 @@
       </mat-error>
     </mat-form-field>
 
+    <mat-form-field class="full-width">
+      <input
+        matInput
+        formControlName="verifyPassword"
+        placeholder="Verify Password"
+        type="password" />
+      <mat-error *ngIf="verifyPassword?.hasError('required')">
+        Please confirm your password
+      </mat-error>
+      <mat-error *ngIf="registerForm.hasError('passwordsDoNotMatch')">
+        Passwords do not match
+      </mat-error>
+    </mat-form-field>
+
     <button mat-raised-button color="primary" type="submit">Register</button>
   </form>
 </div>
