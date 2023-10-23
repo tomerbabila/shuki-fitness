@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '@shared/services';
 import { PasswordValidators } from '@utils/validators';
@@ -8,20 +8,22 @@ import { PasswordValidators } from '@utils/validators';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
 })
-export class RegisterComponent {
-  registerForm: FormGroup;
+export class RegisterComponent implements OnInit {
+  registerForm!: FormGroup;
 
   constructor(
     private authService: AuthService,
     private fb: FormBuilder
-  ) {
+  ) {}
+
+  ngOnInit() {
     this.registerForm = this.fb.group(
       {
         email: ['', [Validators.required, Validators.email]],
         password: ['', [Validators.required, Validators.minLength(6)]],
         verifyPassword: ['', [Validators.required, Validators.minLength(6)]],
       },
-      { validator: PasswordValidators.passwordsMatch }
+      { validators: [PasswordValidators.passwordsMatch] }
     );
   }
 
