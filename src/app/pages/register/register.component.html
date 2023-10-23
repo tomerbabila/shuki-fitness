@@ -1,6 +1,8 @@
 <div class="register-container">
   <div class="title-container">
-    <span class="typography-heading-primary">Register</span>
+    <span class="typography-heading-primary">
+      {{ 'register.title' | translate }}
+    </span>
   </div>
   <form [formGroup]="registerForm" (ngSubmit)="register()">
     <div class="fields-container">
@@ -8,25 +10,27 @@
         <input
           matInput
           formControlName="email"
-          placeholder="Email"
+          [placeholder]="'register.email.placeholder' | translate"
           type="email" />
         <mat-error *ngIf="email?.hasError('required')">
-          Email is required
+          {{ 'register.email.required' | translate }}
         </mat-error>
-        <mat-error *ngIf="email?.hasError('email')">Invalid email</mat-error>
+        <mat-error *ngIf="email?.hasError('email')">
+          {{ 'register.email.invalid' | translate }}
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field class="form-field">
         <input
           matInput
           formControlName="password"
-          placeholder="Password"
+          [placeholder]="'register.password.placeholder' | translate"
           type="password" />
         <mat-error *ngIf="password?.hasError('required')">
-          Password is required
+          {{ 'register.password.required' | translate }}
         </mat-error>
         <mat-error *ngIf="password?.hasError('minlength')">
-          Password must be at least 6 characters long
+          {{ 'register.password.min_length' | translate }}
         </mat-error>
       </mat-form-field>
 
@@ -34,19 +38,21 @@
         <input
           matInput
           formControlName="verifyPassword"
-          placeholder="Verify Password"
+          [placeholder]="'register.verify_password.placeholder' | translate"
           type="password" />
         <mat-error *ngIf="verifyPassword?.hasError('required')">
-          Please confirm your password
+          {{ 'register.verify_password.required' | translate }}
         </mat-error>
         <mat-error *ngIf="registerForm.hasError('passwordsDoNotMatch')">
-          Passwords do not match
+          {{ 'register.verify_password.not_match' | translate }}
         </mat-error>
       </mat-form-field>
     </div>
 
     <div class="actions-container">
-      <button mat-raised-button color="primary" type="submit">Register</button>
+      <button mat-raised-button color="primary" type="submit">
+        {{ 'register.actions.register' | translate }}
+      </button>
     </div>
   </form>
 </div>
