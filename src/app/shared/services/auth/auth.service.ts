@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { UserModel } from '@store/user/models';
+import { RolesModel, UserModel } from '@store/user/models';
 import { UserStore, UserRepository } from '@store/user';
 import { GoogleAuthProvider } from 'firebase/auth';
 import { switchMap, of } from 'rxjs';
@@ -73,5 +73,26 @@ export class AuthService {
 
   async logout() {
     await this.afAuth.signOut();
+  }
+
+  canRead(user: UserModel) {
+    const allowed: (keyof RolesModel)[] = ['admin', 'user'];
+    return this.checkAuth(user, allowed);
+  }
+
+  canEditAndWrite(user: UserModel) {
+    const allowed: (keyof RolesModel)[] = ['admin'];
+    return this.checkAuth(user, allowed);
+  }
+
+  private checkAuth(user: UserModel, allowedRoles: (keyof RolesModel)[]) {
+    if (!user) return false;
+
+    for (const role of allowedRoles) {
+      if (user.role[role]) {
+        return true;
+      }
+    }
+    return false;
   }
 }
