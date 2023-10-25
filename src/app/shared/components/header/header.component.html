@@ -1,3 +1,12 @@
 <mat-toolbar class="header">
   <span>{{ 'title' | translate }}</span>
+  <div class="spacer"></div>
+  <div>
+    <button
+      mat-button
+      *ngIf="(userStore.state$ | async)?.email"
+      (click)="logout()">
+      logout
+    </button>
+  </div>
 </mat-toolbar>

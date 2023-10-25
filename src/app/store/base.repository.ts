@@ -6,11 +6,9 @@ import { Observable } from 'rxjs';
 import { inject } from '@angular/core';
 
 export class BaseRepository<T> {
-  private afs: AngularFirestore;
+  protected afs = inject(AngularFirestore);
 
-  constructor(private collectionName: string) {
-    this.afs = inject(AngularFirestore);
-  }
+  constructor(private collectionName: string) {}
 
   create(data: T): Promise<DocumentReference<T>> {
     return this.afs.collection<T>(this.collectionName).add(data);
