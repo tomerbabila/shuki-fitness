@@ -1,6 +1,7 @@
-import { UserModel } from './user.model';
+import { UserModel } from './models';
 
 export const initialState: UserModel = {
   uid: '',
   email: '',
+  isAdmin: false,
 };

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { BaseRepository } from '..';
-import { UserModel } from './user.model';
+import { BaseRepository } from '../base.repository';
+import { UserModel } from './models';
 
 @Injectable({ providedIn: 'root' })
 export class UserRepository extends BaseRepository<UserModel> {
@@ -8,12 +8,15 @@ export class UserRepository extends BaseRepository<UserModel> {
     super('users');
   }
 
-  createByUid(user: UserModel): Promise<void> {
-    const docRef = this.afs.doc(`users/${user.uid}`);
+  createByUid({ email, uid }: UserModel): Promise<void> {
+    const docRef = this.afs.doc(`users/${uid}`);
+
     const data: UserModel = {
-      email: user.email,
-      uid: user.uid,
+      email: email,
+      uid: uid,
+      isAdmin: false,
     };
+
     return docRef.set(data, { merge: true });
   }
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BaseStore } from '../base.store';
-import { UserModel } from './user.model';
+import { UserModel } from './models';
 import { initialState } from './initial-state';
 
 @Injectable({ providedIn: 'root' })

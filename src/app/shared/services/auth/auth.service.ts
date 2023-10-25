@@ -1,8 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { UserModel } from '@store/user/user.model';
-import { UserRepository } from '@store/user/user.repository';
-import { UserStore } from '@store/user/user.store';
+import { UserModel } from '@store/user/models';
+import { UserStore, UserRepository } from '@store/user';
 import { GoogleAuthProvider } from 'firebase/auth';
 import { switchMap, of } from 'rxjs';
 
@@ -46,7 +45,12 @@ export class AuthService {
     const provider = new GoogleAuthProvider();
     const userCredential = await this.afAuth.signInWithPopup(provider);
 
-    this.userRepository.createByUid(userCredential.user as UserModel);
+    const data = {
+      email: userCredential.user?.email,
+      uid: userCredential.user?.uid,
+    };
+
+    this.userRepository.createByUid(data as UserModel);
 
     return userCredential.user;
   }
@@ -57,7 +61,12 @@ export class AuthService {
       password
     );
 
-    this.userRepository.createByUid(userCredential.user as UserModel);
+    const data = {
+      email: userCredential.user?.email,
+      uid: userCredential.user?.uid,
+    };
+
+    this.userRepository.createByUid(data as UserModel);
 
     return userCredential.user;
   }
