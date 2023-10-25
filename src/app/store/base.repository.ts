@@ -3,12 +3,14 @@ import {
   DocumentReference,
 } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
+import { inject } from '@angular/core';
 
 export class BaseRepository<T> {
-  constructor(
-    private afs: AngularFirestore,
-    private collectionName: string
-  ) {}
+  private afs: AngularFirestore;
+
+  constructor(private collectionName: string) {
+    this.afs = inject(AngularFirestore);
+  }
 
   create(data: T): Promise<DocumentReference<T>> {
     return this.afs.collection<T>(this.collectionName).add(data);

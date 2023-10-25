@@ -1,5 +1,4 @@
-import { User } from '@angular/fire/auth';
-
 export interface UserModel {
-  fbUser: User | undefined;
+  uid: string;
+  email: string;
 }
