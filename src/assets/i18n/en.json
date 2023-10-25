@@ -8,5 +8,44 @@
       "easy": "Easy",
       "intermediate": "Intermediate"
     }
+  },
+  "login": {
+    "title": "Login",
+    "email": {
+      "placeholder": "john@gmail.com",
+      "required": "Email is required",
+      "invalid": "Invalid email"
+    },
+    "password": {
+      "placeholder": "Password",
+      "required": "Password is required",
+      "min_length": "Password must be at least 6 characters long"
+    },
+    "actions": {
+      "login": "Login",
+      "login_with_google": "Login with Google",
+      "go_to_register": "Don't have an account yet? Create an account"
+    }
+  },
+  "register": {
+    "title": "Register",
+    "email": {
+      "placeholder": "john@gmail.com",
+      "required": "Email is required",
+      "invalid": "Invalid email"
+    },
+    "password": {
+      "placeholder": "Password",
+      "required": "Password is required",
+      "min_length": "Password must be at least 6 characters long"
+    },
+    "verify_password": {
+      "placeholder": "Verify Password",
+      "required": "Please confirm your password",
+      "not_match": "Password must be at least 6 characters long"
+    },
+    "actions": {
+      "register": "Register"
+    }
   }
 }

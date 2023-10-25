@@ -45,6 +45,8 @@ Thumbs.db
 .env
 .env.production
 .env.develop
+environment.ts
+environment.development.ts
 
 # Firebase
 .firebase
