@@ -1,1 +1,9 @@
-<p>weekly-plan works!</p>
+<div class="weekly-plan-container">
+  <ng-container *ngLet="userStore.state$ | async as user">
+    <div class="actions-container" *ngIf="authService.canEditAndWrite()">
+      <button mat-raised-button (click)="createWorkout()">
+        Create workout
+      </button>
+    </div>
+  </ng-container>
+</div>

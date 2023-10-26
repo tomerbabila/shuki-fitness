@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 import { HeaderModule } from './components/header/header.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { TimestampToTimePipe } from './pipes/timestamp-to-time.pipe';
+import { NgLetDirective } from './directives/ng-let.directive';
 
 @NgModule({
   imports: [CommonModule],
-  declarations: [TimestampToTimePipe],
-  exports: [TranslateModule, HeaderModule, TimestampToTimePipe],
+  declarations: [TimestampToTimePipe, NgLetDirective],
+  exports: [TranslateModule, HeaderModule, TimestampToTimePipe, NgLetDirective],
 })
 export class SharedModule {}

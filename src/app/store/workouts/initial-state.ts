@@ -1,5 +1,5 @@
-import { WorkoutModel } from './models';
+import { WorkoutsStateModel } from './models';
 
-export const initialState: WorkoutModel = {
-  date: new Date(),
+export const initialState: WorkoutsStateModel = {
+  workouts: [],
 };

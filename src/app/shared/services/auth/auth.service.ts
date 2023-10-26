@@ -8,6 +8,7 @@ import { switchMap, of } from 'rxjs';
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   private afAuth = inject(AngularFireAuth);
+  private user!: UserModel;
 
   constructor(
     private userRepository: UserRepository,
@@ -30,6 +31,8 @@ export class AuthService {
           this.userStore.clearUser();
         }
       });
+
+    this.userStore.state$.subscribe(user => (this.user = user));
   }
 
   async loginWithEmail(email: string, password: string) {
@@ -75,14 +78,14 @@ export class AuthService {
     await this.afAuth.signOut();
   }
 
-  canRead(user: UserModel) {
+  canRead() {
     const allowed: (keyof RolesModel)[] = ['admin', 'user'];
-    return this.checkAuth(user, allowed);
+    return this.checkAuth(this.user, allowed);
   }
 
-  canEditAndWrite(user: UserModel) {
+  canEditAndWrite() {
     const allowed: (keyof RolesModel)[] = ['admin'];
-    return this.checkAuth(user, allowed);
+    return this.checkAuth(this.user, allowed);
   }
 
   private checkAuth(user: UserModel, allowedRoles: (keyof RolesModel)[]) {
