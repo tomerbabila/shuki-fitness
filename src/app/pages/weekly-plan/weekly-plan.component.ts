@@ -14,9 +14,7 @@ export class WeeklyPlanComponent {
     public userStore: UserStore,
     public workoutStore: WorkoutsStore,
     private workoutRepository: WorkoutsRepository
-  ) {
-    this.workoutStore.workouts$.subscribe(w => console.log(w));
-  }
+  ) {}
 
   createWorkout() {
     this.workoutRepository.create({
@@ -43,7 +41,7 @@ export class WeeklyPlanComponent {
     this.workoutRepository.delete(id);
   }
 
-  changeWorkoutVisibility() {
-    // TODO: change workout visibility
+  changeWorkoutVisibility(id: string, visible: boolean) {
+    this.workoutRepository.update(id, { visible: visible });
   }
 }

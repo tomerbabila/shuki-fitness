@@ -7,12 +7,13 @@
     </div>
 
     <mat-card *ngFor="let workout of workoutStore.workouts$ | async">
-      <div>{{ workout.id }}</div>
       <mat-card-header>
         <mat-card-title class="typography-heading-secondary">
           {{ workout.title }}
         </mat-card-title>
-        <button mat-button (click)="openPopover()">Join class</button>
+        <button mat-button *ngIf="!user.role.admin" (click)="openPopover()">
+          Join class
+        </button>
       </mat-card-header>
       <mat-card-content class="typography-body">
         {{ workout.desc }}
@@ -26,7 +27,7 @@
         </button>
         <mat-slide-toggle
           [(ngModel)]="workout.visible"
-          (change)="changeWorkoutVisibility()">
+          (change)="changeWorkoutVisibility(workout.id, workout.visible)">
           visible
         </mat-slide-toggle>
       </mat-card-footer>

@@ -15,7 +15,9 @@ export class BaseRepository<T> {
   }
 
   readAll(): Observable<T[]> {
-    return this.afs.collection<T>(this.collectionName).valueChanges();
+    return this.afs
+      .collection<T>(this.collectionName)
+      .valueChanges({ idField: 'id' });
   }
 
   readById(docId: string): Observable<T | undefined> {
