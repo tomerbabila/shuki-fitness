@@ -8,11 +8,9 @@ export const adminGuard: CanActivateFn = (route, state) => {
   const authService: AuthService = inject(AuthService);
   const userStore: UserStore = inject(UserStore);
 
-  return userStore.state$.pipe(
+  return userStore.user$.pipe(
     take(1),
-    map(user => {
-      return authService.canEditAndWrite(user);
-    }),
+    map(user => authService.canEditAndWrite()),
     tap(isAdmin => {
       if (!isAdmin) {
         console.warn('Access denied - Admins only');

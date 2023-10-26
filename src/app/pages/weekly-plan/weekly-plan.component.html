@@ -1,9 +1,21 @@
 <div class="weekly-plan-container">
-  <ng-container *ngLet="userStore.state$ | async as user">
+  <ng-container *ngLet="userStore.user$ | async as user">
     <div class="actions-container" *ngIf="authService.canEditAndWrite()">
       <button mat-raised-button (click)="createWorkout()">
         Create workout
       </button>
     </div>
   </ng-container>
+
+  <mat-card *ngFor="let workout of workoutStore.workouts$ | async">
+    <mat-card-header>
+      <mat-card-title class="typography-heading-secondary">
+        {{ workout.title }}
+      </mat-card-title>
+      <button mat-button (click)="openPopover()">Join class</button>
+    </mat-card-header>
+    <mat-card-content class="typography-body">
+      {{ workout.desc }}
+    </mat-card-content>
+  </mat-card>
 </div>

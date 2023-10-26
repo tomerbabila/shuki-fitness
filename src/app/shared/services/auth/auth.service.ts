@@ -32,7 +32,7 @@ export class AuthService {
         }
       });
 
-    this.userStore.state$.subscribe(user => (this.user = user));
+    this.userStore.user$.subscribe(user => (this.user = user));
   }
 
   async loginWithEmail(email: string, password: string) {
@@ -79,6 +79,7 @@ export class AuthService {
   }
 
   canRead() {
+    console.log(this.user);
     const allowed: (keyof RolesModel)[] = ['admin', 'user'];
     return this.checkAuth(this.user, allowed);
   }

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '@shared/services';
 import { UserStore } from '@store/user';
-import { WorkoutsRepository } from '@store/workouts/workouts.repository';
+import { WorkoutsStore, WorkoutsRepository } from '@store/workouts';
 
 @Component({
   selector: 'app-weekly-plan',
@@ -12,6 +12,7 @@ export class WeeklyPlanComponent {
   constructor(
     public authService: AuthService,
     public userStore: UserStore,
+    public workoutStore: WorkoutsStore,
     private workoutRepository: WorkoutsRepository
   ) {}
 
@@ -26,5 +27,13 @@ export class WeeklyPlanComponent {
       enable: false,
       totalMembers: 10,
     });
+  }
+
+  openPopover() {
+    if (this.authService.canRead()) {
+      console.log('YAY');
+    } else {
+      console.log('OOP');
+    }
   }
 }
