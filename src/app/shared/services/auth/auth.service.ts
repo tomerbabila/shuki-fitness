@@ -40,7 +40,7 @@ export class AuthService {
       email,
       password
     );
-
+    console.log(userCredential);
     return userCredential.user;
   }
 

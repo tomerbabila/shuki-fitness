@@ -1,4 +1,5 @@
 export interface WorkoutModel {
+  id: string;
   date: Date;
   title: string;
   desc: string;
@@ -6,5 +7,5 @@ export interface WorkoutModel {
   totalMembers: number;
   difficulty: 'hard' | 'intermediate' | 'easy';
   duration: number;
-  enable: boolean;
+  visible: boolean;
 }

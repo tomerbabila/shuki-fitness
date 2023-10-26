@@ -1,21 +1,35 @@
-<div class="weekly-plan-container">
-  <ng-container *ngLet="userStore.user$ | async as user">
+<ng-container *ngLet="userStore.user$ | async as user">
+  <div class="weekly-plan-container">
     <div class="actions-container" *ngIf="authService.canEditAndWrite()">
       <button mat-raised-button (click)="createWorkout()">
         Create workout
       </button>
     </div>
-  </ng-container>
 
-  <mat-card *ngFor="let workout of workoutStore.workouts$ | async">
-    <mat-card-header>
-      <mat-card-title class="typography-heading-secondary">
-        {{ workout.title }}
-      </mat-card-title>
-      <button mat-button (click)="openPopover()">Join class</button>
-    </mat-card-header>
-    <mat-card-content class="typography-body">
-      {{ workout.desc }}
-    </mat-card-content>
-  </mat-card>
-</div>
+    <mat-card *ngFor="let workout of workoutStore.workouts$ | async">
+      <div>{{ workout.id }}</div>
+      <mat-card-header>
+        <mat-card-title class="typography-heading-secondary">
+          {{ workout.title }}
+        </mat-card-title>
+        <button mat-button (click)="openPopover()">Join class</button>
+      </mat-card-header>
+      <mat-card-content class="typography-body">
+        {{ workout.desc }}
+      </mat-card-content>
+      <mat-card-footer *ngIf="authService.canEditAndWrite()">
+        <button mat-button color="primary" (click)="openPopover()">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-button color="warn" (click)="deleteWorkout(workout.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+        <mat-slide-toggle
+          [(ngModel)]="workout.visible"
+          (change)="changeWorkoutVisibility()">
+          visible
+        </mat-slide-toggle>
+      </mat-card-footer>
+    </mat-card>
+  </div>
+</ng-container>
