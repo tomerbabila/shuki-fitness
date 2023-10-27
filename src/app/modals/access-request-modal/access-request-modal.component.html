@@ -1,0 +1,14 @@
+<mat-card class="container">
+  <mat-card-header class="header-container">
+    <span class="typography-heading-secondary title"> Acess required </span>
+  </mat-card-header>
+  <mat-card-content>
+    <p class="typography-body">Please login to sign in a workout</p>
+    <div class="actions-buttons">
+      <button mat-raised-button color="primary" (click)="goToLogin()">
+        Log In
+      </button>
+      <button mat-button color="warn" (click)="dismiss()">Dismiss</button>
+    </div>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,14 @@
+.container {
+  .header-container {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+  }
+
+  .actions-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+}

@@ -40,7 +40,7 @@ export class AuthService {
       email,
       password
     );
-    console.log(userCredential);
+
     return userCredential.user;
   }
 
@@ -79,7 +79,6 @@ export class AuthService {
   }
 
   canRead() {
-    console.log(this.user);
     const allowed: (keyof RolesModel)[] = ['admin', 'user'];
     return this.checkAuth(this.user, allowed);
   }
