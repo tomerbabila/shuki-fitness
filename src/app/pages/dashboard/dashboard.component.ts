@@ -6,11 +6,11 @@ import { WorkoutsStore, WorkoutsRepository } from '@store/workouts';
 import { Subject, takeUntil } from 'rxjs';
 
 @Component({
-  selector: 'app-weekly-plan',
-  templateUrl: './weekly-plan.component.html',
-  styleUrls: ['./weekly-plan.component.scss'],
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.scss'],
 })
-export class WeeklyPlanComponent implements OnInit, OnDestroy {
+export class DashboardComponent implements OnInit, OnDestroy {
   private readonly destroy$ = new Subject<void>();
   private isLoggedIn = false;
 

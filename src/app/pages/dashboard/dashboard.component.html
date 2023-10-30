@@ -1,5 +1,5 @@
 <ng-container *ngLet="userStore.user$ | async as user">
-  <div class="weekly-plan-container">
+  <div class="dashboard-container">
     <div class="actions-container" *ngIf="authService.canEditAndWrite()">
       <button mat-raised-button (click)="createWorkout()">
         Create workout
