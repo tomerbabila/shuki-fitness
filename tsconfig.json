@@ -24,7 +24,8 @@
     "paths": {
       "@shared/*": ["src/app/shared/*"],
       "@utils/*": ["src/app/utils/*"],
-      "@store/*": ["src/app/store/*"]
+      "@store/*": ["src/app/store/*"],
+      "@modals/*": ["src/app/modals/*"]
     },
     "skipLibCheck": true
   },

@@ -1,10 +1,10 @@
-import { UserModel } from './models';
+import { UserStateModel } from './models';
 
-export const initialState: UserModel = {
-  uid: '',
-  email: '',
-  role: {
-    admin: false,
-    user: true,
+export const initialState: UserStateModel = {
+  isLoggedIn: false,
+  user: {
+    uid: '',
+    email: '',
+    roles: {},
   },
 };

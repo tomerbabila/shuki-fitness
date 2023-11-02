@@ -1,0 +1,57 @@
+<div class="dashboard-container">
+  <div class="actions-container" *ngIf="authService.canEditAndWrite()">
+    <button mat-raised-button (click)="createWorkout()">
+      {{ 'dashboard.actions.create_workout' | translate }}
+    </button>
+  </div>
+  <span class="typography-heading-primary">
+    {{ 'dashboard.title' | translate }}
+  </span>
+  <mat-card
+    class="card-container"
+    *ngFor="let workout of workoutStore.workouts$ | async">
+    <mat-card-header class="header-container">
+      <mat-card-title class="typography-heading-secondary">
+        {{ workout.title }}
+      </mat-card-title>
+      <button
+        mat-button
+        *ngIf="!authService.canEditAndWrite()"
+        (click)="goToWorkout(workout.id)">
+        <app-icon name="arrow_right"></app-icon>
+      </button>
+    </mat-card-header>
+    <mat-card-content class="content-container">
+      <mat-card class="detail-container">
+        <app-icon name="three_user" size="lg"></app-icon>
+        <span class="typography-body">
+          {{ workout.currentMembers }} / {{ workout.totalMembers }}
+        </span>
+      </mat-card>
+      <mat-card class="detail-container">
+        <app-icon name="calendar" size="lg"></app-icon>
+        <div class="time-container">
+          <span class="typography-body">
+            {{ workout.date.toDate() | date: 'shortDate' }}
+          </span>
+          <span class="typography-body">
+            {{ workout.duration | timestampToTime }}
+          </span>
+        </div>
+      </mat-card>
+    </mat-card-content>
+    <mat-card-footer *ngIf="authService.canEditAndWrite()">
+      <button mat-button color="primary" (click)="editWorkout()">
+        <app-icon name="edit"></app-icon>
+      </button>
+      <button mat-button color="warn" (click)="deleteWorkout(workout.id)">
+        <app-icon name="delete"></app-icon>
+      </button>
+      <mat-slide-toggle
+        [(ngModel)]="workout.visible"
+        (change)="changeWorkoutVisibility(workout.id, workout.visible)">
+        {{ 'dashboard.workout.visible' | translate }}
+      </mat-slide-toggle>
+    </mat-card-footer>
+  </mat-card>
+</div>

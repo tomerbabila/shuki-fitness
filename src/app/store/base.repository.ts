@@ -10,19 +10,21 @@ export class BaseRepository<T> {
 
   constructor(private collectionName: string) {}
 
-  create(data: T): Promise<DocumentReference<T>> {
-    return this.afs.collection<T>(this.collectionName).add(data);
+  create(data: Omit<T, 'id'>): Promise<DocumentReference<T>> {
+    return this.afs.collection<T>(this.collectionName).add(data as T);
   }
 
   readAll(): Observable<T[]> {
-    return this.afs.collection<T>(this.collectionName).valueChanges();
+    return this.afs
+      .collection<T>(this.collectionName)
+      .valueChanges({ idField: 'id' });
   }
 
   readById(docId: string): Observable<T | undefined> {
     return this.afs
       .collection<T>(this.collectionName)
       .doc<T>(docId)
-      .valueChanges();
+      .valueChanges({ idField: 'id' });
   }
 
   update(docId: string, data: Partial<T>): Promise<void> {

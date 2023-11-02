@@ -4,7 +4,6 @@ import { WorkoutComponent } from './workout.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
-import { MatIconModule } from '@angular/material/icon';
 import { TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from '@shared/shared.module';
 import { WorkoutDetailComponent } from './components/workout-detail/workout-detail.component';
@@ -18,7 +17,6 @@ import { WorkoutDetailComponent } from './components/workout-detail/workout-deta
     MatCardModule,
     MatButtonModule,
     MatDividerModule,
-    MatIconModule,
   ],
   exports: [WorkoutComponent],
 })

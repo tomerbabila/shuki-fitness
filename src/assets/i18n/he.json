@@ -1,0 +1,73 @@
+{
+  "title": "Shuki Fitness",
+  "header": {
+    "actions": {
+      "logout": "התנתקות"
+    }
+  },
+  "dashboard": {
+    "title": "כל האימונים",
+    "workout": {
+      "visible": "גלוי למתאמנים"
+    },
+    "actions": {
+      "create_workout": "יצירת אימון"
+    }
+  },
+  "workout": {
+    "location": "מיקום",
+    "join_now": "הצטרפות לאימון!",
+    "difficulty": {
+      "hard": "קשה",
+      "easy": "קל",
+      "intermediate": "בינוני"
+    }
+  },
+  "login": {
+    "title": "כניסה",
+    "email": {
+      "placeholder": "מייל",
+      "required": "נדרש מייל",
+      "invalid": "מייל לא תקין"
+    },
+    "password": {
+      "placeholder": "סיסמא",
+      "required": "נדרשת סיסמא",
+      "min_length": "הסיסמא צריכה להיות באורך של לפחות 6 תווים"
+    },
+    "actions": {
+      "login": "כניסה",
+      "login_with_google": "כניסה עם Google",
+      "go_to_register": "אין לך חשבון? צור חשבון"
+    }
+  },
+  "register": {
+    "title": "הרשמה",
+    "email": {
+      "placeholder": "מייל",
+      "required": "שדה נדרש",
+      "invalid": "מייל לא תקין"
+    },
+    "password": {
+      "placeholder": "סיסמא",
+      "required": "שדה נדרש",
+      "min_length": "הסיסמא צריכה להיות באורך של לפחות 6 תווים"
+    },
+    "verify_password": {
+      "placeholder": "ווידוא סיסמא",
+      "required": "שדה נדרש",
+      "not_match": "הסיסמאות לא תואמות"
+    },
+    "actions": {
+      "register": "הרשמה"
+    }
+  },
+  "access_request": {
+    "title": "משתמש לא מחובר",
+    "desc": "היכנסו כדי להשתתף באימון!",
+    "actions": {
+      "login": "כניסה",
+      "dismiss": "ביטול"
+    }
+  }
+}

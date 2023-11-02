@@ -2,11 +2,8 @@
   <span>{{ 'title' | translate }}</span>
   <div class="spacer"></div>
   <div>
-    <button
-      mat-button
-      *ngIf="(userStore.state$ | async)?.email"
-      (click)="logout()">
-      logout
+    <button mat-button *ngIf="userStore.isLoggedIn$ | async" (click)="logout()">
+      {{ 'header.actions.logout' | translate }}
     </button>
   </div>
 </mat-toolbar>

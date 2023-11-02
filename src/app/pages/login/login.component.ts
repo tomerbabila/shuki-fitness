@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from '@shared/services';
+import { UserStore } from '@store/user';
+import { takeLast } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -12,8 +15,16 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private fb: FormBuilder
-  ) {}
+    private fb: FormBuilder,
+    private userStore: UserStore,
+    private router: Router
+  ) {
+    this.userStore.isLoggedIn$.subscribe(isLoggedIn => {
+      if (isLoggedIn) {
+        this.router.navigate(['/']);
+      }
+    });
+  }
 
   ngOnInit() {
     this.loginForm = this.fb.group({

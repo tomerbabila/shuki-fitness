@@ -13,7 +13,7 @@ export class TextDirectionService {
   }
 
   checkDirection() {
-    const lang = 'en'; // TODO: add localStorage support here
+    const lang = 'he'; // TODO: add localStorage support here
 
     if (this.isRtl(lang)) {
       this._textDirection.next(TextDirectionEnum.rtl);

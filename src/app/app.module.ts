@@ -13,6 +13,8 @@ import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { ModalsModule } from '@modals/modals.module';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -33,12 +35,14 @@ export function HttpLoaderFactory(http: HttpClient) {
       },
       defaultLanguage: 'en',
     }),
+    AngularSvgIconModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireModule,
     AngularFirestoreModule,
     AngularFireAuthModule,
     SharedModule,
     PagesModule,
+    ModalsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

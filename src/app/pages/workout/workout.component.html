@@ -1,22 +1,24 @@
-<div class="workout-page-container">
-  <span class="workout-title typography-heading-primary">{{ title }}</span>
+<div class="workout-page-container" *ngIf="workout">
+  <span class="workout-title typography-heading-primary">
+    {{ workout.title }}
+  </span>
   <span class="workout-description typography-body">
-    {{ desc }}
+    {{ workout.desc }}
   </span>
   <div class="workout-details">
     <app-workout-detail icon="star">
-      {{ 'workout.difficulty.' + difficulty | translate }}
+      {{ 'workout.difficulty.' + workout.difficulty | translate }}
     </app-workout-detail>
-    <app-workout-detail icon="schedule">
-      {{ duration | timestampToTime }}
+    <app-workout-detail icon="calendar">
+      {{ workout.duration | timestampToTime }}
     </app-workout-detail>
-    <app-workout-detail icon="calendar_today">
-      {{ date | date }}
+    <app-workout-detail icon="calendar">
+      {{ workout.date.toDate() | date }}
     </app-workout-detail>
-    <app-workout-detail icon="group">
-      {{ currentMembers }} / {{ totalMembers }}
+    <app-workout-detail icon="three_user">
+      {{ workout.currentMembers }} / {{ workout.totalMembers }}
     </app-workout-detail>
-    <app-workout-detail icon="location_on">
+    <app-workout-detail icon="location">
       <a href="google.com">{{ 'workout.location' | translate }}</a>
     </app-workout-detail>
   </div>

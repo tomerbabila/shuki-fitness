@@ -1,5 +1,4 @@
-import { BehaviorSubject, Observable } from 'rxjs';
-import { map, distinctUntilChanged } from 'rxjs/operators';
+import { BehaviorSubject, Observable, map, distinctUntilChanged } from 'rxjs';
 
 export class BaseStore<T> {
   private stateSubject: BehaviorSubject<T>;

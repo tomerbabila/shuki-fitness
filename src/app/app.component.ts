@@ -14,8 +14,8 @@ export class AppComponent {
     renderer: Renderer2
   ) {
     // TODO: Change default language to Hebrew
-    translate.setDefaultLang('en');
-    translate.use('en');
+    translate.setDefaultLang('he');
+    translate.use('he');
 
     textDirectionService.textDirection$.subscribe(dir => {
       renderer.setAttribute(document.body, 'dir', dir);
