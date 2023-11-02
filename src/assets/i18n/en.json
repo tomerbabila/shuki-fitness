@@ -1,5 +1,19 @@
 {
   "title": "Shuki Fitness",
+  "header": {
+    "actions": {
+      "logout": "Logout"
+    }
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "workout": {
+      "visible": "Visible"
+    },
+    "actions": {
+      "create_workout": "Create Workout"
+    }
+  },
   "workout": {
     "location": "Location",
     "join_now": "Join Now!",
@@ -12,7 +26,7 @@
   "login": {
     "title": "Login",
     "email": {
-      "placeholder": "john@gmail.com",
+      "placeholder": "Email",
       "required": "Email is required",
       "invalid": "Invalid email"
     },
@@ -30,7 +44,7 @@
   "register": {
     "title": "Register",
     "email": {
-      "placeholder": "john@gmail.com",
+      "placeholder": "Email",
       "required": "Email is required",
       "invalid": "Invalid email"
     },
@@ -42,10 +56,18 @@
     "verify_password": {
       "placeholder": "Verify Password",
       "required": "Please confirm your password",
-      "not_match": "Password must be at least 6 characters long"
+      "not_match": "Passwords are not match"
     },
     "actions": {
       "register": "Register"
+    }
+  },
+  "access_request": {
+    "title": "Access required",
+    "desc": "Please login to sign in a workout",
+    "actions": {
+      "login": "Log In",
+      "dismiss": "Dismiss"
     }
   }
 }

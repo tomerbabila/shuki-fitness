@@ -1,14 +1,20 @@
 <mat-card class="container">
   <mat-card-header class="header-container">
-    <span class="typography-heading-secondary title"> Acess required </span>
+    <span class="typography-heading-secondary title">
+      {{ 'access_request.title' | translate }}
+    </span>
   </mat-card-header>
   <mat-card-content>
-    <p class="typography-body">Please login to sign in a workout</p>
+    <p class="typography-body">
+      {{ 'access_request.desc' | translate }}
+    </p>
     <div class="actions-buttons">
       <button mat-raised-button color="primary" (click)="goToLogin()">
-        Log In
+        {{ 'access_request.actions.login' | translate }}
       </button>
-      <button mat-button color="warn" (click)="dismiss()">Dismiss</button>
+      <button mat-button color="warn" (click)="dismiss()">
+        {{ 'access_request.actions.dismiss' | translate }}
+      </button>
     </div>
   </mat-card-content>
 </mat-card>

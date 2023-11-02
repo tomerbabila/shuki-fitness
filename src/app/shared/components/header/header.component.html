@@ -3,7 +3,7 @@
   <div class="spacer"></div>
   <div>
     <button mat-button *ngIf="userStore.isLoggedIn$ | async" (click)="logout()">
-      logout
+      {{ 'header.actions.logout' | translate }}
     </button>
   </div>
 </mat-toolbar>
