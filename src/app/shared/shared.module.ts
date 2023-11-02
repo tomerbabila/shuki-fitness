@@ -5,6 +5,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { TimestampToTimePipe } from './pipes/timestamp-to-time.pipe';
 import { NgLetDirective } from './directives/ng-let.directive';
 import { OverlayModule } from './components/overlay/overlay.module';
+import { IconModule } from './components/icon/icon.module';
 
 @NgModule({
   imports: [CommonModule],
@@ -13,6 +14,7 @@ import { OverlayModule } from './components/overlay/overlay.module';
     TranslateModule,
     HeaderModule,
     OverlayModule,
+    IconModule,
     TimestampToTimePipe,
     NgLetDirective,
   ],

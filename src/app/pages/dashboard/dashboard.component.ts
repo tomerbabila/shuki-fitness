@@ -4,6 +4,7 @@ import { AuthService, OverlayService } from '@shared/services';
 import { UserStore } from '@store/user';
 import { WorkoutsStore, WorkoutsRepository } from '@store/workouts';
 import { Subject, takeUntil } from 'rxjs';
+import { Timestamp } from '@firebase/firestore';
 
 @Component({
   selector: 'app-dashboard',
@@ -40,7 +41,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
       title: 'Test',
       desc: 'Test',
       currentMembers: 0,
-      date: new Date(),
+      date: Timestamp.fromDate(new Date()),
       difficulty: 'easy',
       duration: 60000,
       visible: false,

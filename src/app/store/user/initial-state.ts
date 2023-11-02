@@ -5,6 +5,6 @@ export const initialState: UserStateModel = {
   user: {
     uid: '',
     email: '',
-    role: {},
+    roles: {},
   },
 };

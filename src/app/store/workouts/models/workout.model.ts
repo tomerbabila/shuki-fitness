@@ -1,6 +1,8 @@
+import { Timestamp } from '@firebase/firestore';
+
 export interface WorkoutModel {
   id: string;
-  date: Date;
+  date: Timestamp;
   title: string;
   desc: string;
   currentMembers: number;

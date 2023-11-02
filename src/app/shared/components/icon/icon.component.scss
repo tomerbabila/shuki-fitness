@@ -1,0 +1,35 @@
+:host {
+  --icon-color: inherit;
+  display: inline-block;
+}
+
+svg-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: inherit;
+  width: inherit;
+}
+
+.fill {
+  fill: transparent;
+}
+
+.stroke {
+  stroke: var(--icon-color);
+}
+
+.lg {
+  width: 24px;
+  height: 24px;
+}
+
+.md {
+  width: 16px;
+  height: 16px;
+}
+
+.sm {
+  width: 12px;
+  height: 12px;
+}

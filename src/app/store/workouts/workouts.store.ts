@@ -12,7 +12,7 @@ export class WorkoutsStore extends BaseStore<WorkoutsStateModel> {
     this.userStore.user$,
   ]).pipe(
     switchMap(([workouts, user]) => {
-      if (user.role.admin) {
+      if (user.roles.admin) {
         return of(workouts);
       } else {
         return of(workouts.filter(w => w.visible));

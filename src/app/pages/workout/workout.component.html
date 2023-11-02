@@ -7,16 +7,16 @@
     <app-workout-detail icon="star">
       {{ 'workout.difficulty.' + difficulty | translate }}
     </app-workout-detail>
-    <app-workout-detail icon="schedule">
+    <app-workout-detail icon="calendar">
       {{ duration | timestampToTime }}
     </app-workout-detail>
-    <app-workout-detail icon="calendar_today">
+    <app-workout-detail icon="calendar">
       {{ date | date }}
     </app-workout-detail>
-    <app-workout-detail icon="group">
+    <app-workout-detail icon="three_user">
       {{ currentMembers }} / {{ totalMembers }}
     </app-workout-detail>
-    <app-workout-detail icon="location_on">
+    <app-workout-detail icon="location">
       <a href="google.com">{{ 'workout.location' | translate }}</a>
     </app-workout-detail>
   </div>
