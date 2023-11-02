@@ -5,6 +5,7 @@ import { UserStore } from '@store/user';
 import { WorkoutsStore, WorkoutsRepository } from '@store/workouts';
 import { Subject, takeUntil } from 'rxjs';
 import { Timestamp } from '@firebase/firestore';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -20,7 +21,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
     public userStore: UserStore,
     public workoutStore: WorkoutsStore,
     private workoutRepository: WorkoutsRepository,
-    private overlayService: OverlayService
+    private overlayService: OverlayService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -37,6 +39,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   createWorkout() {
+    // TODO: Go to create workout
     this.workoutRepository.create({
       title: 'Test',
       desc: 'Test',
@@ -49,19 +52,25 @@ export class DashboardComponent implements OnInit, OnDestroy {
     });
   }
 
-  openPopover() {
+  goToWorkout(workoutId: string) {
     if (this.isLoggedIn) {
-      console.log('OOP');
+      this.router.navigate([`/workout`, workoutId]);
     } else {
       this.overlayService.open(AccessRequestModalComponent, null);
     }
   }
 
+  editWorkout() {
+    // TODO: Go to edit workout
+  }
+
   deleteWorkout(id: string) {
     this.workoutRepository.delete(id);
+    // TODO: Add popup "are you sure?"
   }
 
   changeWorkoutVisibility(id: string, visible: boolean) {
     this.workoutRepository.update(id, { visible: visible });
+    // TODO: Remove and add in edit workout page
   }
 }

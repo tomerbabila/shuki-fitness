@@ -13,7 +13,7 @@
       <button
         mat-button
         *ngIf="!authService.canEditAndWrite()"
-        (click)="openPopover()">
+        (click)="goToWorkout(workout.id)">
         <app-icon name="arrow_right"></app-icon>
       </button>
     </mat-card-header>
@@ -31,13 +31,13 @@
             {{ workout.date.toDate() | date: 'shortDate' }}
           </span>
           <span class="typography-body">
-            {{ workout.date.toDate() | date: 'shortTime' }}
+            {{ workout.duration | timestampToTime }}
           </span>
         </div>
       </mat-card>
     </mat-card-content>
     <mat-card-footer *ngIf="authService.canEditAndWrite()">
-      <button mat-button color="primary" (click)="openPopover()">
+      <button mat-button color="primary" (click)="editWorkout()">
         <app-icon name="edit"></app-icon>
       </button>
       <button mat-button color="warn" (click)="deleteWorkout(workout.id)">

@@ -1,21 +1,31 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { WorkoutsRepository, WorkoutsStore } from '@store/workouts';
+import { WorkoutModel } from '@store/workouts/models';
 
 @Component({
   selector: 'app-workout',
   templateUrl: './workout.component.html',
   styleUrls: ['./workout.component.scss'],
 })
-export class WorkoutComponent {
-  // TODO: remove all inputs and use state
-  @Input() title = 'asdasd';
-  @Input() desc = 'ASasdasd';
-  @Input() date: Date = new Date();
-  @Input() currentMembers = 0;
-  @Input() totalMembers = 12;
-  @Input() difficulty: 'hard' | 'intermediate' | 'easy' = 'intermediate';
-  @Input() duration = 6000000;
+export class WorkoutComponent implements OnInit {
+  workout!: WorkoutModel;
+
+  constructor(
+    private workoutsRepository: WorkoutsRepository,
+    private route: ActivatedRoute
+  ) {}
+
+  ngOnInit() {
+    const { id } = this.route.snapshot.params;
+    this.workoutsRepository.readById(id).subscribe(selectedWorkout => {
+      if (selectedWorkout) {
+        this.workout = selectedWorkout;
+      }
+    });
+  }
 
   get isFullBooked() {
-    return this.currentMembers === this.totalMembers;
+    return this.workout.currentMembers === this.workout.totalMembers;
   }
 }
