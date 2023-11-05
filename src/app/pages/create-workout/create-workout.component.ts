@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { WorkoutService } from '@shared/services';
 import { DifficultyEnum } from '@store/workouts/models';
 import { TimeValidators } from '@utils/validators';
 
@@ -12,7 +13,10 @@ export class CreateWorkoutComponent implements OnInit {
   difficultyEnum = DifficultyEnum;
   createWorkoutForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private workoutService: WorkoutService
+  ) {}
 
   ngOnInit() {
     this.createWorkoutForm = this.fb.group({
@@ -34,16 +38,7 @@ export class CreateWorkoutComponent implements OnInit {
 
   createWorkout() {
     console.log(this.createWorkoutForm.value);
-    // this.workoutRepository.create({
-    //   title: 'Test',
-    //   desc: 'Test',
-    //   currentMembers: 0,
-    //   date: Timestamp.fromDate(new Date()),
-    //   difficulty: DifficultyEnum.easy,
-    //   duration: 60000,
-    //   visible: false,
-    //   totalMembers: 10,
-    // });
+    this.workoutService.createWorkout(this.createWorkoutForm.value);
   }
 
   get title() {
