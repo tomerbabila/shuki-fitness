@@ -37,7 +37,6 @@ export class CreateWorkoutComponent implements OnInit {
   }
 
   createWorkout() {
-    console.log(this.createWorkoutForm.value);
     this.workoutService.createWorkout(this.createWorkoutForm.value);
   }
 
