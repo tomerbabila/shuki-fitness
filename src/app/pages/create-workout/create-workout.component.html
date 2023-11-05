@@ -1,7 +1,9 @@
 <div class="create-workout-container">
-  <span class="typography-heading-primary">
-    {{ 'create_workout.title' | translate }}
-  </span>
+  <div class="title-container">
+    <span class="typography-heading-primary">
+      {{ 'create_workout.title' | translate }}
+    </span>
+  </div>
   <form [formGroup]="createWorkoutForm" (ngSubmit)="createWorkout()">
     <div class="fields-container">
       <mat-form-field class="form-field">
