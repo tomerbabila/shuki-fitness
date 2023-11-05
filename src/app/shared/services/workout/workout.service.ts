@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
+import { increment } from '@angular/fire/firestore';
+import { filter } from 'rxjs';
 import { UserRepository, UserStore } from '@store/user';
 import { WorkoutsRepository } from '@store/workouts';
 import { UserModel } from '@store/user/models';
-import { increment } from '@angular/fire/firestore';
 
 @Injectable({ providedIn: 'root' })
 export class WorkoutService {
@@ -13,7 +14,9 @@ export class WorkoutService {
     private userStore: UserStore,
     private workoutRepository: WorkoutsRepository
   ) {
-    this.userStore.user$.subscribe(user => (this.user = user));
+    this.userStore.user$
+      .pipe(filter(val => !!val))
+      .subscribe(user => (this.user = user));
   }
 
   registerForWorkout(workoutId: string) {
@@ -21,7 +24,6 @@ export class WorkoutService {
       currentMembers: increment(1) as unknown as number,
     });
 
-    console.log(this.user.workouts);
     const newWorkouts = [...this.user.workouts, workoutId];
     this.userRepository.update(this.user.uid, {
       workouts: newWorkouts,
