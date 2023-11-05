@@ -85,6 +85,7 @@ export class AuthService {
 
   canEditAndWrite() {
     const allowed: (keyof RolesModel)[] = ['admin'];
+    console.log(this.user);
     return this.checkAuth(this.user, allowed);
   }
 
