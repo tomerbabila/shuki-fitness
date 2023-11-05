@@ -17,6 +17,7 @@
   "workout": {
     "location": "מיקום",
     "join_now": "הצטרפות לאימון!",
+    "remove": "הסרה מהאימון",
     "difficulty": {
       "hard": "קשה",
       "easy": "קל",

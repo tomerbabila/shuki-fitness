@@ -15,6 +15,7 @@ export class UserRepository extends BaseRepository<UserModel> {
       email: email,
       uid: uid,
       roles: { user: true },
+      workouts: [],
     };
 
     return docRef.set(data, { merge: true });

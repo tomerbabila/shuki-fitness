@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { WorkoutsRepository, WorkoutsStore } from '@store/workouts';
+import { WorkoutService } from '@shared/services';
 import { WorkoutModel } from '@store/workouts/models';
 
 @Component({
@@ -10,19 +10,33 @@ import { WorkoutModel } from '@store/workouts/models';
 })
 export class WorkoutComponent implements OnInit {
   workout!: WorkoutModel;
+  id!: string;
 
   constructor(
-    private workoutsRepository: WorkoutsRepository,
+    private workoutService: WorkoutService,
     private route: ActivatedRoute
   ) {}
 
   ngOnInit() {
-    const { id } = this.route.snapshot.params;
-    this.workoutsRepository.readById(id).subscribe(selectedWorkout => {
+    this.id = this.route.snapshot.params['id'];
+
+    this.workoutService.getWorkoutById(this.id).subscribe(selectedWorkout => {
       if (selectedWorkout) {
         this.workout = selectedWorkout;
       }
     });
+  }
+
+  registerForWorkout() {
+    this.workoutService.registerForWorkout(this.id);
+  }
+
+  removeFromWorkout() {
+    this.workoutService.removeFromWorkout(this.id);
+  }
+
+  get isRegisteredToWorkout() {
+    return this.workoutService.checkIfUserRegisterToWorkout(this.id);
   }
 
   get isFullBooked() {

@@ -5,6 +5,7 @@ import { initialState } from './initial-state';
 import { Observable, combineLatest, of, switchMap } from 'rxjs';
 import { WorkoutsRepository } from './workouts.repository';
 import { UserStore } from '@store/user';
+
 @Injectable({ providedIn: 'root' })
 export class WorkoutsStore extends BaseStore<WorkoutsStateModel> {
   workouts$: Observable<WorkoutModel[]> = combineLatest([

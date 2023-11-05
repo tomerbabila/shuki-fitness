@@ -4,4 +4,5 @@ export interface UserModel {
   uid: string;
   email: string;
   roles: RolesModel;
+  workouts: string[];
 }

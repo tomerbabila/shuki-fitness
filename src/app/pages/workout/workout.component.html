@@ -23,8 +23,20 @@
     </app-workout-detail>
   </div>
   <div class="actions-container">
-    <button [disabled]="isFullBooked" mat-button>
+    <button
+      [disabled]="isFullBooked"
+      *ngIf="!isRegisteredToWorkout"
+      mat-button
+      color="primary"
+      (click)="registerForWorkout()">
       {{ 'workout.join_now' | translate }}
+    </button>
+    <button
+      *ngIf="isRegisteredToWorkout"
+      mat-button
+      color="warn"
+      (click)="removeFromWorkout()">
+      {{ 'workout.remove' | translate }}
     </button>
   </div>
 </div>
