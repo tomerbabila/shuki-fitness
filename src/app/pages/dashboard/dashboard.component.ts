@@ -1,6 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AccessRequestModalComponent } from '@modals/access-request-modal/access-request-modal.component';
-import { AuthService, OverlayService } from '@shared/services';
+import {
+  AuthService,
+  OverlayService,
+  TextDirectionService,
+} from '@shared/services';
 import { UserStore } from '@store/user';
 import { WorkoutsStore, WorkoutsRepository } from '@store/workouts';
 import { Subject, takeUntil } from 'rxjs';
@@ -20,6 +24,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     public authService: AuthService,
     public userStore: UserStore,
     public workoutStore: WorkoutsStore,
+    public textDirectionService: TextDirectionService,
     private workoutRepository: WorkoutsRepository,
     private overlayService: OverlayService,
     private router: Router

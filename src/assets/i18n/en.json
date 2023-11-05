@@ -17,6 +17,7 @@
   "workout": {
     "location": "Location",
     "join_now": "Join Now!",
+    "remove": "Remove me",
     "difficulty": {
       "hard": "Hard",
       "easy": "Easy",

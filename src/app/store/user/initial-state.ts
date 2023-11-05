@@ -6,5 +6,6 @@ export const initialState: UserStateModel = {
     uid: '',
     email: '',
     roles: {},
+    workouts: [],
   },
 };
