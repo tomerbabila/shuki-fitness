@@ -8,7 +8,6 @@ import {
 import { UserStore } from '@store/user';
 import { WorkoutsStore, WorkoutsRepository } from '@store/workouts';
 import { Subject, takeUntil } from 'rxjs';
-import { Timestamp } from '@firebase/firestore';
 import { Router } from '@angular/router';
 
 @Component({
@@ -44,22 +43,12 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   createWorkout() {
-    // TODO: Go to create workout
-    this.workoutRepository.create({
-      title: 'Test',
-      desc: 'Test',
-      currentMembers: 0,
-      date: Timestamp.fromDate(new Date()),
-      difficulty: 'easy',
-      duration: 60000,
-      visible: false,
-      totalMembers: 10,
-    });
+    this.router.navigate(['/create-workout']);
   }
 
   goToWorkout(workoutId: string) {
     if (this.isLoggedIn) {
-      this.router.navigate([`/workout`, workoutId]);
+      this.router.navigate(['/workout', workoutId]);
     } else {
       this.overlayService.open(AccessRequestModalComponent, null);
     }

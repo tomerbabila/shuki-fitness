@@ -1,3 +1,49 @@
-<div>
-  <span class="typography-heading-primary">hello</span>
+<div class="create-workout-container">
+  <span class="typography-heading-primary">
+    {{ 'create_workout.form.title' | translate }}
+  </span>
+  <form [formGroup]="createWorkoutForm" (ngSubmit)="createWorkout()">
+    <div class="fields-container">
+      <mat-form-field class="form-field">
+        <input
+          matInput
+          formControlName="title"
+          [placeholder]="'create_workout.form.title.placeholder' | translate"
+          type="text" />
+        <mat-error *ngIf="title?.hasError('required')">
+          {{ 'create_workout.form.title.required' | translate }}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-field">
+        <textarea
+          matInput
+          formControlName="desc"
+          [placeholder]="'create_workout.form.desc.placeholder' | translate">
+        </textarea>
+      </mat-form-field>
+
+      <mat-button-toggle-group
+        name="difficulty"
+        aria-label="Difficulty"
+        formControlName="difficulty"
+        class="form-field">
+        <mat-button-toggle [value]="difficultyEnum.easy">
+          Easy
+        </mat-button-toggle>
+        <mat-button-toggle [value]="difficultyEnum.intermediate">
+          Intermediate
+        </mat-button-toggle>
+        <mat-button-toggle [value]="difficultyEnum.hard">
+          Hard
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+
+    <div class="actions-container">
+      <button mat-raised-button color="primary" type="submit">
+        {{ 'create_workout.actions.create' | translate }}
+      </button>
+    </div>
+  </form>
 </div>

@@ -63,6 +63,21 @@
       "register": "Register"
     }
   },
+  "create_workout": {
+    "title": "Create Workout",
+    "form": {
+      "title": {
+        "placeholder": "Title",
+        "required": "Title is required"
+      },
+      "desc": {
+        "placeholder": "Description of the workout..."
+      }
+    },
+    "actions": {
+      "create": "Create"
+    }
+  },
   "access_request": {
     "title": "Access required",
     "desc": "Please login to sign in a workout",

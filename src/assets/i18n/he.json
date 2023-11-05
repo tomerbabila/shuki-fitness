@@ -63,6 +63,23 @@
       "register": "הרשמה"
     }
   },
+
+  "create_workout": {
+    "title": "יצירת אימון",
+    "form": {
+      "title": {
+        "placeholder": "כותרת",
+        "required": "נדרשת כותרת"
+      },
+      "desc": {
+        "placeholder": "תיאור האימון..."
+      }
+    },
+
+    "actions": {
+      "create": "יצירה"
+    }
+  },
   "access_request": {
     "title": "משתמש לא מחובר",
     "desc": "היכנסו כדי להשתתף באימון!",
