@@ -28,7 +28,7 @@ export class CreateWorkoutComponent implements OnInit {
         [Validators.required, TimeValidators.dateGreaterThanToday],
       ],
       totalMembers: [10, [Validators.required, Validators.min(2)]],
-      visible: [false, [Validators.required]],
+      visible: [true, [Validators.required]],
     });
   }
 

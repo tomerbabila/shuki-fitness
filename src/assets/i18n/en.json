@@ -67,11 +67,35 @@
     "title": "Create Workout",
     "form": {
       "title": {
-        "placeholder": "Title",
+        "label": "Title",
+        "placeholder": "Title of the workout",
         "required": "Title is required"
       },
       "desc": {
+        "label": "Description",
         "placeholder": "Description of the workout..."
+      },
+      "difficulty": {
+        "label": "Difficulty",
+        "easy": "Easy",
+        "intermediate": "Intermediate",
+        "hard": "Hard"
+      },
+      "duration": {
+        "label": "Duration",
+        "placeholder": "Duration of the workout..."
+      },
+      "date": {
+        "label": "Date",
+        "placeholder": "Date of the workout...",
+        "hint": "MM/DD/YYYY"
+      },
+      "total_members": {
+        "label": "Total Members",
+        "placeholder": "Number of participants"
+      },
+      "visible": {
+        "label": "Is the workout visible for trainers?"
       }
     },
     "actions": {

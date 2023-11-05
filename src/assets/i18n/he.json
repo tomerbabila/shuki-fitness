@@ -68,11 +68,35 @@
     "title": "יצירת אימון",
     "form": {
       "title": {
-        "placeholder": "כותרת",
+        "label": "כותרת",
+        "placeholder": "תנו כותרת לאימון...",
         "required": "נדרשת כותרת"
       },
       "desc": {
-        "placeholder": "תיאור האימון..."
+        "label": "תיאור",
+        "placeholder": "תנו תיאור לאימון..."
+      },
+      "difficulty": {
+        "label": "רמת קושי",
+        "easy": "קל",
+        "intermediate": "בינוני",
+        "hard": "קשה"
+      },
+      "duration": {
+        "label": "אורך",
+        "placeholder": "בחרו את אורך האימון"
+      },
+      "date": {
+        "label": "תאריך",
+        "placeholder": "בחרו את תאריך האימון",
+        "hint": "MM/DD/YYYY"
+      },
+      "total_members": {
+        "label": "מספר משתתפים",
+        "placeholder": "מספר המשתתפים באימון"
+      },
+      "visible": {
+        "label": "האם האימון גלוי למתאמנים?"
       }
     },
 
