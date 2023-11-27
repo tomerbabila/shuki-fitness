@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { WorkoutService } from '@shared/services';
-import { DifficultyEnum, WorkoutModel } from '@store/workouts/models';
+import { DifficultyEnum } from '@store/workouts/models';
 import { millisecondsToMinutes } from '@utils/helpers';
 import { TimeValidators } from '@utils/validators';
 
@@ -16,12 +16,12 @@ export class CreateWorkoutComponent implements OnInit {
   WorkoutForm!: FormGroup;
   isEdit = false;
   id = '';
-  workout!: WorkoutModel | undefined;
 
   constructor(
     private fb: FormBuilder,
     private workoutService: WorkoutService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -46,14 +46,16 @@ export class CreateWorkoutComponent implements OnInit {
     if (this.id) {
       this.isEdit = true;
       this.workoutService.getWorkoutById(this.id).subscribe(wo => {
-        if (wo) {
-          this.workout = wo;
-          this.WorkoutForm.patchValue({
-            ...wo,
-            date: wo.date.toDate(),
-            duration: millisecondsToMinutes(wo.duration),
-          });
+        if (!wo) {
+          this.router.navigate(['/']);
+          return;
         }
+
+        this.WorkoutForm.patchValue({
+          ...wo,
+          date: wo.date.toDate(),
+          duration: millisecondsToMinutes(wo.duration),
+        });
       });
     }
   }

@@ -4,7 +4,6 @@ import { filter } from 'rxjs';
 import { UserRepository, UserStore } from '@store/user';
 import { WorkoutsRepository } from '@store/workouts';
 import { UserModel } from '@store/user/models';
-import { WorkoutModel } from '@store/workouts/models';
 import { EditableWorkoutModel } from './workout.types';
 import { minutesToMilliseconds } from '@utils/helpers';
 

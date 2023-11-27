@@ -21,13 +21,13 @@ export class WorkoutComponent implements OnInit {
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
 
-    this.workoutService.getWorkoutById(this.id).subscribe(selectedWorkout => {
-      console.log(selectedWorkout);
-      if (selectedWorkout) {
-        this.workout = selectedWorkout;
-      } else {
+    this.workoutService.getWorkoutById(this.id).subscribe(wo => {
+      if (!wo) {
         this.router.navigate(['/']);
+        return;
       }
+
+      this.workout = wo;
     });
   }
 
