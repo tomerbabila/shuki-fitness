@@ -17,7 +17,7 @@ jobs:
           node-version: '12'
       - run: node server.js
         env:
-        FIREBASE_DETAILS: '${{ secrets.FIREBASE_DETAILS }}'
+          FIREBASE_DETAILS: '${{ secrets.FIREBASE_DETAILS }}'
       # continue with build
       - uses: actions/checkout@v3
       - run: npm ci && npm run build
