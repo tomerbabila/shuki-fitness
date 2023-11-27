@@ -2,11 +2,13 @@
   "title": "Shuki Fitness",
   "header": {
     "actions": {
-      "logout": "התנתקות"
+      "logout": "התנתקות",
+      "login": "כניסה",
+      "register": "הרשמה"
     }
   },
   "dashboard": {
-    "title": "כל האימונים",
+    "title": "האימונים הבאים",
     "workout": {
       "visible": "גלוי למתאמנים"
     },
@@ -61,6 +63,51 @@
     },
     "actions": {
       "register": "הרשמה"
+    }
+  },
+
+  "workout_form": {
+    "title": {
+      "create": "יצירת אימון",
+      "edit": "עריכת אימון"
+    },
+    "form": {
+      "title": {
+        "label": "כותרת",
+        "placeholder": "תנו כותרת לאימון...",
+        "required": "נדרשת כותרת"
+      },
+      "desc": {
+        "label": "תיאור",
+        "placeholder": "תנו תיאור לאימון..."
+      },
+      "difficulty": {
+        "label": "רמת קושי",
+        "easy": "קל",
+        "intermediate": "בינוני",
+        "hard": "קשה"
+      },
+      "duration": {
+        "label": "אורך (בדקות)",
+        "placeholder": "בחרו את אורך האימון"
+      },
+      "date": {
+        "label": "תאריך",
+        "placeholder": "בחרו את תאריך האימון",
+        "hint": "MM/DD/YYYY"
+      },
+      "total_members": {
+        "label": "מספר משתתפים",
+        "placeholder": "מספר המשתתפים באימון"
+      },
+      "visible": {
+        "label": "האם האימון גלוי למתאמנים?"
+      }
+    },
+
+    "actions": {
+      "create": "יצירה",
+      "edit": "עריכה"
     }
   },
   "access_request": {

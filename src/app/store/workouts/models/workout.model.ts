@@ -1,4 +1,5 @@
 import { Timestamp } from '@firebase/firestore';
+import { DifficultyEnum } from './difficulty.model';
 
 export interface WorkoutModel {
   id: string;
@@ -7,7 +8,7 @@ export interface WorkoutModel {
   desc: string;
   currentMembers: number;
   totalMembers: number;
-  difficulty: 'hard' | 'intermediate' | 'easy';
+  difficulty: DifficultyEnum;
   duration: number;
   visible: boolean;
 }

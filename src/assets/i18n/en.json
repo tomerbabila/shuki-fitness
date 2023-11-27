@@ -2,7 +2,9 @@
   "title": "Shuki Fitness",
   "header": {
     "actions": {
-      "logout": "Logout"
+      "logout": "Logout",
+      "login": "Log In",
+      "register": "Register"
     }
   },
   "dashboard": {
@@ -61,6 +63,49 @@
     },
     "actions": {
       "register": "Register"
+    }
+  },
+  "workout_form": {
+    "title": {
+      "create": "Create Workout",
+      "edit": "Edit Workout"
+    },
+    "form": {
+      "title": {
+        "label": "Title",
+        "placeholder": "Title of the workout",
+        "required": "Title is required"
+      },
+      "desc": {
+        "label": "Description",
+        "placeholder": "Description of the workout..."
+      },
+      "difficulty": {
+        "label": "Difficulty",
+        "easy": "Easy",
+        "intermediate": "Intermediate",
+        "hard": "Hard"
+      },
+      "duration": {
+        "label": "Duration (in minutes)",
+        "placeholder": "Duration of the workout..."
+      },
+      "date": {
+        "label": "Date",
+        "placeholder": "Date of the workout...",
+        "hint": "MM/DD/YYYY"
+      },
+      "total_members": {
+        "label": "Total Members",
+        "placeholder": "Number of participants"
+      },
+      "visible": {
+        "label": "Is the workout visible for trainers?"
+      }
+    },
+    "actions": {
+      "create": "Create",
+      "edit": "Edit"
     }
   },
   "access_request": {

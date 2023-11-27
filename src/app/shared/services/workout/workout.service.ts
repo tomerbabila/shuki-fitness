@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
-import { increment } from '@angular/fire/firestore';
+import { Timestamp, increment } from '@angular/fire/firestore';
 import { filter } from 'rxjs';
 import { UserRepository, UserStore } from '@store/user';
 import { WorkoutsRepository } from '@store/workouts';
 import { UserModel } from '@store/user/models';
+import { EditableWorkoutModel } from './workout.types';
+import { minutesToMilliseconds } from '@utils/helpers';
 
 @Injectable({ providedIn: 'root' })
 export class WorkoutService {
@@ -49,5 +51,31 @@ export class WorkoutService {
 
   checkIfUserRegisterToWorkout(workoutId: string) {
     return this.user.workouts.includes(workoutId);
+  }
+
+  createWorkout(workout: EditableWorkoutModel) {
+    this.workoutRepository.create({
+      title: workout.title,
+      desc: workout.desc,
+      currentMembers: 0,
+      date: Timestamp.fromDate(workout.date),
+      difficulty: workout.difficulty,
+      duration: minutesToMilliseconds(workout.duration),
+      visible: workout.visible,
+      totalMembers: workout.totalMembers,
+    });
+  }
+
+  updateWorkout(id: string, workout: EditableWorkoutModel) {
+    this.workoutRepository.update(id, {
+      title: workout.title,
+      desc: workout.desc,
+      currentMembers: 0,
+      date: Timestamp.fromDate(workout.date),
+      difficulty: workout.difficulty,
+      duration: minutesToMilliseconds(workout.duration),
+      visible: workout.visible,
+      totalMembers: workout.totalMembers,
+    });
   }
 }

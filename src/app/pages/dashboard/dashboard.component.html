@@ -9,6 +9,7 @@
     <span class="typography-heading-primary">
       {{ 'dashboard.title' | translate }}
     </span>
+    <!-- TODO: move to workout card component -->
     <mat-card
       class="card-container"
       *ngFor="let workout of workoutStore.workouts$ | async">
@@ -46,7 +47,7 @@
         </mat-card>
       </mat-card-content>
       <mat-card-footer *ngIf="authService.canEditAndWrite()">
-        <button mat-button color="primary" (click)="editWorkout()">
+        <button mat-button color="primary" (click)="editWorkout(workout.id)">
           <app-icon name="edit"></app-icon>
         </button>
         <button mat-button color="warn" (click)="deleteWorkout(workout.id)">

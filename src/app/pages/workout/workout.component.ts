@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { WorkoutService } from '@shared/services';
 import { WorkoutModel } from '@store/workouts/models';
 
@@ -14,16 +14,20 @@ export class WorkoutComponent implements OnInit {
 
   constructor(
     private workoutService: WorkoutService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
 
-    this.workoutService.getWorkoutById(this.id).subscribe(selectedWorkout => {
-      if (selectedWorkout) {
-        this.workout = selectedWorkout;
+    this.workoutService.getWorkoutById(this.id).subscribe(wo => {
+      if (!wo) {
+        this.router.navigate(['/']);
+        return;
       }
+
+      this.workout = wo;
     });
   }
 
