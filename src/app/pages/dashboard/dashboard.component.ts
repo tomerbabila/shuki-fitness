@@ -43,7 +43,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   createWorkout() {
-    this.router.navigate(['/create-workout']);
+    this.router.navigate(['/workout/new']);
   }
 
   goToWorkout(workoutId: string) {
@@ -54,8 +54,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
     }
   }
 
-  editWorkout() {
-    // TODO: Go to edit workout
+  editWorkout(workoutId: string) {
+    this.router.navigate([`/workout/edit/${workoutId}`]);
   }
 
   deleteWorkout(id: string) {

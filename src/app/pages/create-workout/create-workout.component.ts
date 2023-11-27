@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { WorkoutService } from '@shared/services';
 import { DifficultyEnum } from '@store/workouts/models';
 import { TimeValidators } from '@utils/validators';
@@ -15,17 +16,19 @@ export class CreateWorkoutComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private workoutService: WorkoutService
+    private workoutService: WorkoutService,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit() {
+    console.log(this.route.snapshot.params['id']);
     this.createWorkoutForm = this.fb.group({
       title: ['', [Validators.required]],
       desc: [''],
       difficulty: [DifficultyEnum.easy, [Validators.required]],
       duration: [
-        3600000,
-        [Validators.required, TimeValidators.durationGreaterThan(1800000)],
+        60,
+        [Validators.required, TimeValidators.durationGreaterThan(10)],
       ],
       date: [
         new Date(),

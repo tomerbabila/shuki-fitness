@@ -8,13 +8,23 @@ import { CreateWorkoutComponent } from './pages/create-workout/create-workout.co
 
 export const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  { path: 'workout/:id', component: WorkoutComponent },
+  {
+    path: 'workout',
+    children: [
+      {
+        path: 'new',
+        component: CreateWorkoutComponent,
+        canActivate: [adminGuard],
+      },
+      {
+        path: 'edit/:id',
+        component: CreateWorkoutComponent,
+        canActivate: [adminGuard],
+      },
+      { path: ':id', component: WorkoutComponent },
+    ],
+  },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  {
-    path: 'create-workout',
-    component: CreateWorkoutComponent,
-    canActivate: [adminGuard],
-  },
 ];

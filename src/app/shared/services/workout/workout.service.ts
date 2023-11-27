@@ -59,9 +59,15 @@ export class WorkoutService {
       currentMembers: 0,
       date: Timestamp.fromDate(workout.date),
       difficulty: workout.difficulty,
-      duration: workout.duration,
+      duration: this.minutesToMilliseconds(workout.duration),
       visible: workout.visible,
       totalMembers: workout.totalMembers,
     });
+  }
+
+  private minutesToMilliseconds(minutes: number): number {
+    const millisecondsPerMinute = 60 * 1000;
+    const milliseconds = minutes * millisecondsPerMinute;
+    return milliseconds;
   }
 }
