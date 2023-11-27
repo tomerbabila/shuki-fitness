@@ -1,27 +1,25 @@
-# ShukiFitness
+# Shuki Fitness
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.6.
+## Introduction
 
-## Development server
+Welcome to Shuki fitness! you can visit us [here](https://shuki-fitness.web.app/)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+# Getting Started
 
-## Code scaffolding
+If it's your first time installing this project, do the following:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. Run `npm ci`
+2. in `src/environment` folder, Create an `environment.ts` file base on in `environment.example.ts`
+3. Replace the rules on `Firebase Database` with the rules in `firestore.rules` file **or** use `npm run deploy:rules` command
+4. Run `npm run start`
+5. Enjoy!
 
-## Build
+## Build & Deploy
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Unfortunately, in the moment we do not have CI/CD progress. If you wish to deploy a new version, you need to run `npm run deploy` and wait.
 
-## Running unit tests
+## Commands
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- `npm run start` - start the project
+- `npm run deploy` - deploy a new version to production
+- `npm run deploy:rules` - deploy the new rules
