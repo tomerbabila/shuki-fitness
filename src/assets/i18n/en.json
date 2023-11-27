@@ -84,7 +84,7 @@
         "hard": "Hard"
       },
       "duration": {
-        "label": "Duration",
+        "label": "Duration (in minutes)",
         "placeholder": "Duration of the workout..."
       },
       "date": {

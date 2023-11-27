@@ -2,7 +2,7 @@ import {
   AngularFirestore,
   DocumentReference,
 } from '@angular/fire/compat/firestore';
-import { Observable } from 'rxjs';
+import { Observable, from, switchMap, of } from 'rxjs';
 import { inject } from '@angular/core';
 
 export class BaseRepository<T> {
@@ -21,10 +21,16 @@ export class BaseRepository<T> {
   }
 
   readById(docId: string): Observable<T | undefined> {
-    return this.afs
-      .collection<T>(this.collectionName)
-      .doc<T>(docId)
-      .valueChanges({ idField: 'id' });
+    const docRef = this.afs.collection<T>(this.collectionName).doc<T>(docId);
+
+    return from(docRef.get()).pipe(
+      switchMap(docSnapshot => {
+        if (docSnapshot.exists) {
+          return docRef.valueChanges({ idField: 'id' });
+        }
+        return of(undefined);
+      })
+    );
   }
 
   update(docId: string, data: Partial<T>): Promise<void> {

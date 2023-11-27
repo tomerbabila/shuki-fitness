@@ -85,7 +85,7 @@
         "hard": "קשה"
       },
       "duration": {
-        "label": "אורך",
+        "label": "אורך (בדקות)",
         "placeholder": "בחרו את אורך האימון"
       },
       "date": {
