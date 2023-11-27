@@ -4,7 +4,7 @@ import { filter } from 'rxjs';
 import { UserRepository, UserStore } from '@store/user';
 import { WorkoutsRepository } from '@store/workouts';
 import { UserModel } from '@store/user/models';
-import { DifficultyEnum, WorkoutModel } from '@store/workouts/models';
+import { WorkoutModel } from '@store/workouts/models';
 
 @Injectable({ providedIn: 'root' })
 export class WorkoutService {

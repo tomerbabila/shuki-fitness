@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '@shared/services';
 import { UserStore } from '@store/user/user.store';
 
@@ -10,10 +11,15 @@ import { UserStore } from '@store/user/user.store';
 export class HeaderComponent {
   constructor(
     public userStore: UserStore,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {}
 
   logout() {
     this.authService.logout();
+  }
+
+  goTo(path: '' | 'login' | 'register') {
+    this.router.navigate([`/${path}`]);
   }
 }

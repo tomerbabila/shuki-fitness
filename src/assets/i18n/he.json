@@ -2,11 +2,13 @@
   "title": "Shuki Fitness",
   "header": {
     "actions": {
-      "logout": "התנתקות"
+      "logout": "התנתקות",
+      "login": "כניסה",
+      "register": "הרשמה"
     }
   },
   "dashboard": {
-    "title": "כל האימונים",
+    "title": "האימונים הבאים",
     "workout": {
       "visible": "גלוי למתאמנים"
     },

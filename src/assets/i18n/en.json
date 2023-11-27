@@ -2,7 +2,9 @@
   "title": "Shuki Fitness",
   "header": {
     "actions": {
-      "logout": "Logout"
+      "logout": "Logout",
+      "login": "Log In",
+      "register": "Register"
     }
   },
   "dashboard": {
