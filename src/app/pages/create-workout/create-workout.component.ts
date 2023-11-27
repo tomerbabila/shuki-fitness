@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { WorkoutService } from '@shared/services';
-import { DifficultyEnum } from '@store/workouts/models';
+import { DifficultyEnum, WorkoutModel } from '@store/workouts/models';
+import { millisecondsToMinutes } from '@utils/helpers';
 import { TimeValidators } from '@utils/validators';
 
 @Component({
@@ -12,7 +13,10 @@ import { TimeValidators } from '@utils/validators';
 })
 export class CreateWorkoutComponent implements OnInit {
   difficultyEnum = DifficultyEnum;
-  createWorkoutForm!: FormGroup;
+  WorkoutForm!: FormGroup;
+  isEdit = false;
+  id = '';
+  workout!: WorkoutModel | undefined;
 
   constructor(
     private fb: FormBuilder,
@@ -21,8 +25,9 @@ export class CreateWorkoutComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    console.log(this.route.snapshot.params['id']);
-    this.createWorkoutForm = this.fb.group({
+    this.id = this.route.snapshot.params['id'];
+
+    this.WorkoutForm = this.fb.group({
       title: ['', [Validators.required]],
       desc: [''],
       difficulty: [DifficultyEnum.easy, [Validators.required]],
@@ -37,13 +42,31 @@ export class CreateWorkoutComponent implements OnInit {
       totalMembers: [10, [Validators.required, Validators.min(2)]],
       visible: [true, [Validators.required]],
     });
+
+    if (this.id) {
+      this.isEdit = true;
+      this.workoutService.getWorkoutById(this.id).subscribe(wo => {
+        if (wo) {
+          this.workout = wo;
+          this.WorkoutForm.patchValue({
+            ...wo,
+            date: wo.date.toDate(),
+            duration: millisecondsToMinutes(wo.duration),
+          });
+        }
+      });
+    }
   }
 
-  createWorkout() {
-    this.workoutService.createWorkout(this.createWorkoutForm.value);
+  submitWorkoutForm() {
+    if (this.isEdit) {
+      this.workoutService.updateWorkout(this.id, this.WorkoutForm.value);
+    } else {
+      this.workoutService.createWorkout(this.WorkoutForm.value);
+    }
   }
 
   get title() {
-    return this.createWorkoutForm.get('title');
+    return this.WorkoutForm.get('title');
   }
 }

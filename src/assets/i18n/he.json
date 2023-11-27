@@ -66,8 +66,11 @@
     }
   },
 
-  "create_workout": {
-    "title": "יצירת אימון",
+  "workout_form": {
+    "title": {
+      "create": "יצירת אימון",
+      "edit": "עריכת אימון"
+    },
     "form": {
       "title": {
         "label": "כותרת",
@@ -103,7 +106,8 @@
     },
 
     "actions": {
-      "create": "יצירה"
+      "create": "יצירה",
+      "edit": "עריכה"
     }
   },
   "access_request": {

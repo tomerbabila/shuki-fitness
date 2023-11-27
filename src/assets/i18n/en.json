@@ -65,8 +65,11 @@
       "register": "Register"
     }
   },
-  "create_workout": {
-    "title": "Create Workout",
+  "workout_form": {
+    "title": {
+      "create": "Create Workout",
+      "edit": "Edit Workout"
+    },
     "form": {
       "title": {
         "label": "Title",
@@ -101,7 +104,8 @@
       }
     },
     "actions": {
-      "create": "Create"
+      "create": "Create",
+      "edit": "Edit"
     }
   },
   "access_request": {

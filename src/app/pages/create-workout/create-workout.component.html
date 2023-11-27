@@ -1,78 +1,81 @@
-<div class="create-workout-container">
+<div class="workout-form-container">
   <div class="title-container">
     <span class="typography-heading-primary">
-      {{ 'create_workout.title' | translate }}
+      {{
+        (isEdit ? 'workout_form.title.edit' : 'workout_form.title.create')
+          | translate
+      }}
     </span>
   </div>
-  <form [formGroup]="createWorkoutForm" (ngSubmit)="createWorkout()">
+  <form [formGroup]="WorkoutForm" (ngSubmit)="submitWorkoutForm()">
     <div class="fields-container">
       <mat-form-field class="form-field">
         <mat-label>
-          {{ 'create_workout.form.title.label' | translate }}
+          {{ 'workout_form.form.title.label' | translate }}
         </mat-label>
         <input
           matInput
           formControlName="title"
-          [placeholder]="'create_workout.form.title.placeholder' | translate"
+          [placeholder]="'workout_form.form.title.placeholder' | translate"
           type="text" />
         <mat-error *ngIf="title?.hasError('required')">
-          {{ 'create_workout.form.title.required' | translate }}
+          {{ 'workout_form.form.title.required' | translate }}
         </mat-error>
       </mat-form-field>
 
       <mat-form-field class="form-field">
         <mat-label>
-          {{ 'create_workout.form.desc.label' | translate }}
+          {{ 'workout_form.form.desc.label' | translate }}
         </mat-label>
         <textarea
           matInput
           formControlName="desc"
-          [placeholder]="'create_workout.form.desc.placeholder' | translate">
+          [placeholder]="'workout_form.form.desc.placeholder' | translate">
         </textarea>
       </mat-form-field>
 
       <div class="form-field">
         <span class="typography-body">
-          {{ 'create_workout.form.difficulty.label' | translate }}
+          {{ 'workout_form.form.difficulty.label' | translate }}
         </span>
         <mat-button-toggle-group
           name="difficulty"
-          [attr.aria-label]="'create_workout.form.difficulty.label' | translate"
+          [attr.aria-label]="'workout_form.form.difficulty.label' | translate"
           formControlName="difficulty">
           <mat-button-toggle [value]="difficultyEnum.easy">
-            {{ 'create_workout.form.difficulty.easy' | translate }}
+            {{ 'workout_form.form.difficulty.easy' | translate }}
           </mat-button-toggle>
           <mat-button-toggle [value]="difficultyEnum.intermediate">
-            {{ 'create_workout.form.difficulty.intermediate' | translate }}
+            {{ 'workout_form.form.difficulty.intermediate' | translate }}
           </mat-button-toggle>
           <mat-button-toggle [value]="difficultyEnum.hard">
-            {{ 'create_workout.form.difficulty.hard' | translate }}
+            {{ 'workout_form.form.difficulty.hard' | translate }}
           </mat-button-toggle>
         </mat-button-toggle-group>
       </div>
 
       <mat-form-field class="form-field">
         <mat-label>
-          {{ 'create_workout.form.duration.label' | translate }}
+          {{ 'workout_form.form.duration.label' | translate }}
         </mat-label>
         <input
           matInput
           formControlName="duration"
-          [placeholder]="'create_workout.form.duration.placeholder' | translate"
+          [placeholder]="'workout_form.form.duration.placeholder' | translate"
           type="number" />
       </mat-form-field>
 
       <mat-form-field class="form-field">
         <mat-label>
-          {{ 'create_workout.form.date.label' | translate }}
+          {{ 'workout_form.form.date.label' | translate }}
         </mat-label>
         <input
           matInput
-          [placeholder]="'create_workout.form.date.placeholder' | translate"
+          [placeholder]="'workout_form.form.date.placeholder' | translate"
           [matDatepicker]="picker"
           formControlName="date" />
         <mat-hint>
-          {{ 'create_workout.form.date.hint' | translate }}
+          {{ 'workout_form.form.date.hint' | translate }}
         </mat-hint>
         <mat-datepicker-toggle
           matIconSuffix
@@ -82,25 +85,28 @@
 
       <mat-form-field class="form-field">
         <mat-label>
-          {{ 'create_workout.form.total_members.label' | translate }}
+          {{ 'workout_form.form.total_members.label' | translate }}
         </mat-label>
         <input
           matInput
           formControlName="totalMembers"
           [placeholder]="
-            'create_workout.form.total_members.placeholder' | translate
+            'workout_form.form.total_members.placeholder' | translate
           "
           type="number" />
       </mat-form-field>
 
       <mat-slide-toggle class="form-field" formControlName="visible">
-        {{ 'create_workout.form.visible.label' | translate }}
+        {{ 'workout_form.form.visible.label' | translate }}
       </mat-slide-toggle>
     </div>
 
     <div class="actions-container">
       <button mat-raised-button color="primary" type="submit">
-        {{ 'create_workout.actions.create' | translate }}
+        {{
+          (isEdit ? 'workout_form.actions.edit' : 'workout_form.actions.create')
+            | translate
+        }}
       </button>
     </div>
   </form>

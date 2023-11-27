@@ -5,6 +5,8 @@ import { UserRepository, UserStore } from '@store/user';
 import { WorkoutsRepository } from '@store/workouts';
 import { UserModel } from '@store/user/models';
 import { WorkoutModel } from '@store/workouts/models';
+import { EditableWorkoutModel } from './workout.types';
+import { minutesToMilliseconds } from '@utils/helpers';
 
 @Injectable({ providedIn: 'root' })
 export class WorkoutService {
@@ -52,22 +54,29 @@ export class WorkoutService {
     return this.user.workouts.includes(workoutId);
   }
 
-  createWorkout(workout: Omit<WorkoutModel, 'date'> & { date: Date }) {
+  createWorkout(workout: EditableWorkoutModel) {
     this.workoutRepository.create({
       title: workout.title,
       desc: workout.desc,
       currentMembers: 0,
       date: Timestamp.fromDate(workout.date),
       difficulty: workout.difficulty,
-      duration: this.minutesToMilliseconds(workout.duration),
+      duration: minutesToMilliseconds(workout.duration),
       visible: workout.visible,
       totalMembers: workout.totalMembers,
     });
   }
 
-  private minutesToMilliseconds(minutes: number): number {
-    const millisecondsPerMinute = 60 * 1000;
-    const milliseconds = minutes * millisecondsPerMinute;
-    return milliseconds;
+  updateWorkout(id: string, workout: EditableWorkoutModel) {
+    this.workoutRepository.update(id, {
+      title: workout.title,
+      desc: workout.desc,
+      currentMembers: 0,
+      date: Timestamp.fromDate(workout.date),
+      difficulty: workout.difficulty,
+      duration: minutesToMilliseconds(workout.duration),
+      visible: workout.visible,
+      totalMembers: workout.totalMembers,
+    });
   }
 }
