@@ -1,0 +1,119 @@
+{
+  "title": "Shuki Fitness",
+  "header": {
+    "actions": {
+      "logout": "Logout",
+      "login": "Log In",
+      "register": "Register"
+    }
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "workout": {
+      "visible": "Visible"
+    },
+    "actions": {
+      "create_workout": "Create Workout"
+    }
+  },
+  "workout": {
+    "location": "Location",
+    "join_now": "Join Now!",
+    "remove": "Remove me",
+    "difficulty": {
+      "hard": "Hard",
+      "easy": "Easy",
+      "intermediate": "Intermediate"
+    }
+  },
+  "login": {
+    "title": "Login",
+    "email": {
+      "placeholder": "Email",
+      "required": "Email is required",
+      "invalid": "Invalid email"
+    },
+    "password": {
+      "placeholder": "Password",
+      "required": "Password is required",
+      "min_length": "Password must be at least 6 characters long"
+    },
+    "actions": {
+      "login": "Login",
+      "login_with_google": "Login with Google",
+      "go_to_register": "Don't have an account yet? Create an account"
+    }
+  },
+  "register": {
+    "title": "Register",
+    "email": {
+      "placeholder": "Email",
+      "required": "Email is required",
+      "invalid": "Invalid email"
+    },
+    "password": {
+      "placeholder": "Password",
+      "required": "Password is required",
+      "min_length": "Password must be at least 6 characters long"
+    },
+    "verify_password": {
+      "placeholder": "Verify Password",
+      "required": "Please confirm your password",
+      "not_match": "Passwords are not match"
+    },
+    "actions": {
+      "register": "Register"
+    }
+  },
+  "workout_form": {
+    "title": {
+      "create": "Create Workout",
+      "edit": "Edit Workout"
+    },
+    "form": {
+      "title": {
+        "label": "Title",
+        "placeholder": "Title of the workout",
+        "required": "Title is required"
+      },
+      "desc": {
+        "label": "Description",
+        "placeholder": "Description of the workout..."
+      },
+      "difficulty": {
+        "label": "Difficulty",
+        "easy": "Easy",
+        "intermediate": "Intermediate",
+        "hard": "Hard"
+      },
+      "duration": {
+        "label": "Duration (in minutes)",
+        "placeholder": "Duration of the workout..."
+      },
+      "date": {
+        "label": "Date",
+        "placeholder": "Date of the workout...",
+        "hint": "MM/DD/YYYY"
+      },
+      "total_members": {
+        "label": "Total Members",
+        "placeholder": "Number of participants"
+      },
+      "visible": {
+        "label": "Is the workout visible for trainers?"
+      }
+    },
+    "actions": {
+      "create": "Create",
+      "edit": "Edit"
+    }
+  },
+  "access_request": {
+    "title": "Access required",
+    "desc": "Please login to sign in a workout",
+    "actions": {
+      "login": "Log In",
+      "dismiss": "Dismiss"
+    }
+  }
+}

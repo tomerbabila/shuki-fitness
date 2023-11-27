@@ -1,0 +1,20 @@
+<mat-toolbar class="header">
+  <app-logo></app-logo>
+  <div class="spacer"></div>
+  <div *ngIf="userStore.isLoggedIn$ | async; else noUserButtons">
+    <button mat-button (click)="logout()">
+      {{ 'header.actions.logout' | translate }}
+    </button>
+  </div>
+</mat-toolbar>
+
+<ng-template #noUserButtons>
+  <div>
+    <button mat-button (click)="goTo('login')">
+      {{ 'header.actions.login' | translate }}
+    </button>
+    <button mat-button (click)="goTo('register')">
+      {{ 'header.actions.register' | translate }}
+    </button>
+  </div>
+</ng-template>

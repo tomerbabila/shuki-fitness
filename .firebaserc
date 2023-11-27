@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "shuki-fitness": {
+      "hosting": {
+        "shuki-fitness": [
+          "shuki-fitness"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "shuki-fitness"
+  }
+}

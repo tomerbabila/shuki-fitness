@@ -1,0 +1,121 @@
+{
+  "title": "Shuki Fitness",
+  "header": {
+    "actions": {
+      "logout": "התנתקות",
+      "login": "כניסה",
+      "register": "הרשמה"
+    }
+  },
+  "dashboard": {
+    "title": "האימונים הבאים",
+    "workout": {
+      "visible": "גלוי למתאמנים"
+    },
+    "actions": {
+      "create_workout": "יצירת אימון"
+    }
+  },
+  "workout": {
+    "location": "מיקום",
+    "join_now": "הצטרפות לאימון!",
+    "remove": "הסרה מהאימון",
+    "difficulty": {
+      "hard": "קשה",
+      "easy": "קל",
+      "intermediate": "בינוני"
+    }
+  },
+  "login": {
+    "title": "כניסה",
+    "email": {
+      "placeholder": "מייל",
+      "required": "נדרש מייל",
+      "invalid": "מייל לא תקין"
+    },
+    "password": {
+      "placeholder": "סיסמא",
+      "required": "נדרשת סיסמא",
+      "min_length": "הסיסמא צריכה להיות באורך של לפחות 6 תווים"
+    },
+    "actions": {
+      "login": "כניסה",
+      "login_with_google": "כניסה עם Google",
+      "go_to_register": "אין לך חשבון? צור חשבון"
+    }
+  },
+  "register": {
+    "title": "הרשמה",
+    "email": {
+      "placeholder": "מייל",
+      "required": "שדה נדרש",
+      "invalid": "מייל לא תקין"
+    },
+    "password": {
+      "placeholder": "סיסמא",
+      "required": "שדה נדרש",
+      "min_length": "הסיסמא צריכה להיות באורך של לפחות 6 תווים"
+    },
+    "verify_password": {
+      "placeholder": "ווידוא סיסמא",
+      "required": "שדה נדרש",
+      "not_match": "הסיסמאות לא תואמות"
+    },
+    "actions": {
+      "register": "הרשמה"
+    }
+  },
+
+  "workout_form": {
+    "title": {
+      "create": "יצירת אימון",
+      "edit": "עריכת אימון"
+    },
+    "form": {
+      "title": {
+        "label": "כותרת",
+        "placeholder": "תנו כותרת לאימון...",
+        "required": "נדרשת כותרת"
+      },
+      "desc": {
+        "label": "תיאור",
+        "placeholder": "תנו תיאור לאימון..."
+      },
+      "difficulty": {
+        "label": "רמת קושי",
+        "easy": "קל",
+        "intermediate": "בינוני",
+        "hard": "קשה"
+      },
+      "duration": {
+        "label": "אורך (בדקות)",
+        "placeholder": "בחרו את אורך האימון"
+      },
+      "date": {
+        "label": "תאריך",
+        "placeholder": "בחרו את תאריך האימון",
+        "hint": "MM/DD/YYYY"
+      },
+      "total_members": {
+        "label": "מספר משתתפים",
+        "placeholder": "מספר המשתתפים באימון"
+      },
+      "visible": {
+        "label": "האם האימון גלוי למתאמנים?"
+      }
+    },
+
+    "actions": {
+      "create": "יצירה",
+      "edit": "עריכה"
+    }
+  },
+  "access_request": {
+    "title": "משתמש לא מחובר",
+    "desc": "היכנסו כדי להשתתף באימון!",
+    "actions": {
+      "login": "כניסה",
+      "dismiss": "ביטול"
+    }
+  }
+}

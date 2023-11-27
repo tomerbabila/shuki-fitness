@@ -1,0 +1,42 @@
+<div class="workout-page-container" *ngIf="workout">
+  <span class="workout-title typography-heading-primary">
+    {{ workout.title }}
+  </span>
+  <span class="workout-description typography-body">
+    {{ workout.desc }}
+  </span>
+  <div class="workout-details">
+    <app-workout-detail icon="star">
+      {{ 'workout.difficulty.' + workout.difficulty | translate }}
+    </app-workout-detail>
+    <app-workout-detail icon="calendar">
+      {{ workout.duration | timestampToTime }}
+    </app-workout-detail>
+    <app-workout-detail icon="calendar">
+      {{ workout.date.toDate() | date }}
+    </app-workout-detail>
+    <app-workout-detail icon="three_user">
+      {{ workout.currentMembers }} / {{ workout.totalMembers }}
+    </app-workout-detail>
+    <app-workout-detail icon="location">
+      <a href="google.com">{{ 'workout.location' | translate }}</a>
+    </app-workout-detail>
+  </div>
+  <div class="actions-container">
+    <button
+      [disabled]="isFullBooked"
+      *ngIf="!isRegisteredToWorkout"
+      mat-button
+      color="primary"
+      (click)="registerForWorkout()">
+      {{ 'workout.join_now' | translate }}
+    </button>
+    <button
+      *ngIf="isRegisteredToWorkout"
+      mat-button
+      color="warn"
+      (click)="removeFromWorkout()">
+      {{ 'workout.remove' | translate }}
+    </button>
+  </div>
+</div>
